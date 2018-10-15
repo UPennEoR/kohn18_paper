@@ -17,6 +17,8 @@ We have added a plot of this "linear leakage beam" as Figure 2 and an explanatio
 
 b) Section 2.1 mentions that emission in Stokes I is extremely bright compared to Stokes Q, U and V, and that the leakage dominates over this emission. However, Jelic et al. (2015) and Lenc et al. (2016) observed linearly polarized structures of ~ 5-10 K. Since, HERA-19 has maximum baseline of ~54 m, and if the Mueller matrix terms (smaller fractional leakage) shown in figure 1 are to be believed, the diffuse polarized emission should dominate in Stokes Q and U. This should be explained. 
 
+*** Shit.  None of this really hangs together any more, so ...
+
 The referee's point is well taken that the relative contribution of polarized and unpolarized power to the pseudo-Stokes Q and U power spectra (Figures 7 and 8) and to the images in Figure 4 should be better quantified.  The simplest measurement uses the power spectra. 
 
 Referring to Figure 10, the measured amplitude of the Q and U power spectra are ~10^13.5 and I is ~10^16, implying a ratio of power spectra of about 2.5 orders of magnitude.  The expected I -> Q,U leakage based on the simulations into Q and U is about 70% of the measured value.  Removing this, and taking the remainder to be intrinsically polarized, this corresponds to an intrinsic polarized fraction of ~0.03.  At 160 MHz (high band), we expect the sky temperature to be ~200 K, so the polarized fluctuations measured on the shortest baseline are order 6 K, indeed consistent with the polarized emission measured by Jelic and Lenc. 

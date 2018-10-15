@@ -421,15 +421,17 @@ HERA only observes in drift-scan mode. The observations we used were eight night
 Parameter & Value \\
 \hline
 JD range & 2457548 -- 2457555 \\
-LST Range & 11 -- 23 hrs \\
-Frequency range & 100 -- 200 MHz \\
-Frequency resolution & 100 kHz \\
-Integration time & 10 s\\
-Element diameter & 14.7 m\\
+LST Range & 10.6 -- 23 hrs \\
+Frequency range & 115 -- 185 MHz \\
+Frequency resolution & 97.6 kHz \\
+Integration time & 10.7 s\\
+Element diameter & 14.0 m\\
 Number of elements & 15 \\
 Primary beam diameter & $9^{\circ}$ \\
 System Temperature & $100 + 120(\nu / 150\,{\rm MHz})^{-2.55}$ K\\
 SEFD per element & $\sim 5800$ Jy at 150 MHz\\
+Shortest baseline & 14.6 m \\
+Longest baseline & 58.XXX m \\
 \hline
 \end{tabular}
 \label{tab:params}
@@ -457,10 +459,33 @@ Using LSTs in which the Galactic center (GC; $\alpha, \delta$ = 17h 45m 40.04s,â
 Clearly, this is an incomplete calibration model. However, as the objective of this work is to explore the response of the instrument in power spectrum space without combining baselines of different lengths, most of the purpose of the calibration \edit1{was} correcting an initial large cable delay per antenna. 
 Treating the GC as unpolarized is adequate for this study. The large optical depth towards the GC \citep{Oppermann.12} results in large amounts depolarization in the plane of the Galaxy \citep{Wolleben.06}. Moreover, we expected non-negligible amounts of beam depolarization due to the large solid angle of the synthesized beam.
 
+\edit1{Need to describe the new calibration scheme}
+
+
+
 For each night of observations, we used the {\sc CASA} {\tt gaincal} and {\tt bandpass} functions to obtain \edit1{per-frequency channel} phase and amplitude solutions for each antenna and dipole arm \edit1{at the ten minute interval corresponding to the transit of the GC. These routines used the GC model described above to form simulated visibilities, which could subsequently be fit to the data to determine the complex gains per antenna. The complex gain spectra per antenna were applied to the entire night of observations.} Four antennae had very deviant solutions, and their inclusion resulted in low-quality images. These were omitted from further analysis (and are marked with red ``X"s in Figure~\ref{fig:antpos}).  Before calibration, we manually flagged the edges of the band (below 110 MHz and above 190 MHz), where spectral behavior is dominated by the high and low pass filtering in the HERA signal chain \citep{deBoer17}.
 
 In Figure~\ref{fig:GCimage}, we show images formed from the simulated pseudo-Stokes visibilities (top panels) and our observations (bottom panels). These are multi-frequency synthesis images, where we used all unflagged frequencies on either side of the band edges; 115 MHz to 188 MHz. We do not specify a beam model during imaging. \edit1{All images shown were produced using the ten minute interval used for calibration.} At HERA's position ((latitude, longitude) = (-30:43:17.5, 21:25:41.9)) the Galactic Center transits 2$^{\circ}$ from zenith, while the HERA primary beam has a FWHM of $\sim5^{\circ}$ at 150\,MHz \citep{Neben.16}. For the simulated visibilities, we flagged the same antennae as in the data. As expected for a compact array, the Stokes I images capture only a low-resolution view of the Galactic Center. The simulated and observed visibilities form remarkably similar images in Stokes I, Q and U, but the simulation under-predicts pseudo-Stokes V power. We defer further discussion to Section~\ref{sec:results}.
 %Excesses visible at the position of the GC  in Stokes Q and Stokes V suggest gain errors at $\sim 1\%$ level and D-terms present at the $\sim 1\%$ level \citep{TMS}, if they are purely due to direction-independent leakage terms.
+
+
+
+%\begin{figure*}
+%\centering
+%\includegraphics[width=0.9\textwidth]{RealAndSim_FluxDensitySpectrum.png}
+%\caption{
+%The extracted Galactic Center spectrum from images of both the simulated and real data.  showing that spectral structure is due to real features of the sky and beam and not induced by the absolute calibration process.
+%}
+%\label{fig:GCSpectrum}
+%\end{figure*}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{gains.pdf}
+%{h19_2457458_abs_smallzoom_nolegend.png}
+\caption{Bandpass solutions for the North-South dipole orientation obtained for the functioning antennae in the array on JD 2457548. Differences in line color and style is merely to distinguish different antennae. Shaded regions indicate the effective sub-bands used for power spectrum analysis.  \edit1{The order of these figures changed.}}
+\label{fig:bandpass}
+\end{figure}
 
 \begin{figure*}
 \centering
@@ -470,7 +495,10 @@ In Figure~\ref{fig:GCimage}, we show images formed from the simulated pseudo-Sto
 \caption{
 \textit{Above}: Multi-frequency synthesis pseudo-Stokes images formed from simulation, where only a Stokes I sky was used; any polarized power is due to direction-dependent polarization leakage (see Section~\ref{subsec:DD-Leak}).
 \textit{Below}: Multi-frequency synthesis pseudo-Stokes images formed from observed visibilities on JD 2457548.
-Both sets of panels show the Galactic Center (our calibrator source) close to transit in pseudo-Stokes I, Q, U and V visibilities (\textit{top left, top right, lower left, lower right}). A Briggs-weighting with robustness 0 was used when gridding into the image plane. No deconvolution was performed. The colorbar is in units of Jy/Beam.
+Both sets of panels show the Galactic Center (our calibrator source) close to transit in pseudo-Stokes I, Q, U and V visibilities (\textit{top left, top right, lower left, lower right}). A Briggs-weighting with robustness 0 was used when gridding into the image plane. 
+	An interactive CLEAN with sources near the Galactic Center was performed.  
+	%No deconvolution was performed. 
+	The colorbar is in units of Jy/Beam.
 A separate color scale is used for Stokes I for suitable dynamic range. An R.A., Dec. grid is shown, illustrating the wide-field nature of HERA observations.
 }
 %The color scale is normalized to the peak flux of the Galactic Center in Stokes I.} %The excess at the center of the Stokes Q image suggests a $\sim 1\%$ error in the gain solutions, while the excess in Stokes V suggests D-terms at the $\sim 1\%$ level \citep{TMS}.}
@@ -479,12 +507,7 @@ A separate color scale is used for Stokes I for suitable dynamic range. An R.A.,
 
 Example bandpass solutions from JD 2457548 are shown in Figure~\ref{fig:bandpass}. Although some residual RFI remains obvious, the derived bandpasses were smooth. Thus, even though the gains were imprecise, we expected that using them should not add additional spectral structure. \edit1{The $\sim$6 dB spread in bandpass amplitudes is within the expected range for the electronics used in the analog signal chain \citep[e.g.][]{deBoer17}.}
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{h19_2457458_abs_smallzoom_nolegend.png}
-\caption{Bandpass solutions for the North-South dipole orientation obtained for the functioning antennae in the array on JD 2457548. Differences in line color and style is merely to distinguish different antennae. Shaded regions indicate the effective sub-bands used for power spectrum analysis.}
-\label{fig:bandpass}
-\end{figure}
+
 
 The complex gain solutions were subsequently applied to the {\sc miriad} files. Figure~\ref{fig:phasecal} shows the effect of calibration on the visibilities of three nominally redundantly-spaced baselines. Shown in that figure are the phases of three $V^{nn}$ visibilities from 14.7\,m baselines before and after calibration. There were no shared antennae between the visibilities shown. The qualitative agreement is obvious, providing a consistency check on the solutions.
 %Our calibration was sufficient to enforce redundancy between these nominally-redundant baselines, which granted some verification of our methods.
@@ -508,6 +531,7 @@ S_{\rm Sgr A^*}(\nu) \approx  3709 {\rm\, Jy} \times (\nu/408 {\rm \,MHz})^{-0.5
 \label{eq:freq_scale}
 \end{equation}
 drawn from the Global Sky Model \citep[GSM;][]{GSM.08,pygsm,GSM.17}. Note that the GSM is inherently $\sim 5\%$ uncertain at these frequencies. We note that this scaling is heavily resolution dependent; we are treating the Galactic Center as a point source when it is extended in reality. However, Section~\ref{sec:results} we show that we obtain sensible power levels for the foregrounds and noise, lending confidence to our overall scaling.
+
 
 \subsection{Forming power spectra}
 \label{subsec:pspec}

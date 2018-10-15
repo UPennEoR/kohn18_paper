@@ -13,6 +13,7 @@ a) In section 2.1, simulations of direction dependent Mueller matrix at two diff
 
 We have added a plot of this "linear leakage beam" as Figure 2 and an explanation of how to interpret it in Section XXX.
 
+*** Goddammit - Zac made this?  but it never made it into the repo
 
 b) Section 2.1 mentions that emission in Stokes I is extremely bright compared to Stokes Q, U and V, and that the leakage dominates over this emission. However, Jelic et al. (2015) and Lenc et al. (2016) observed linearly polarized structures of ~ 5-10 K. Since, HERA-19 has maximum baseline of ~54 m, and if the Mueller matrix terms (smaller fractional leakage) shown in figure 1 are to be believed, the diffuse polarized emission should dominate in Stokes Q and U. This should be explained. 
 

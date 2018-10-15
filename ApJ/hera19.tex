@@ -26,6 +26,12 @@
 \author{James E. Aguirre}
 \affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
+\author{Paul La Plante}
+\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+
+\author{Tashalee S. Billings}
+\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+
 \author{Paul M. Chichura}
 \affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
@@ -39,15 +45,9 @@
 \author{Roshan K. Benefo}
 \affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
-\author{Tashalee S. Billings}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
-
 \author{Samavarti Gallardo}
 \affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 \affiliation{California State University of Los Angeles, 5151 State University Dr, Los Angeles, CA 90032 USA}
-
-\author{Paul La Plante}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
 \author{Zachary E. Martinot}
 \affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
@@ -384,6 +384,15 @@ V^{ee}\end{array} \right) .
 \label{fig:mueller}
 \end{figure*}
 
+\begin{figure*}
+\centering
+\includegraphics[scale=0.4]{hera19_linear_polarization_beam.pdf}
+\caption{\edit1{A different view of the direction dependent Mueller matrix at 120 MHz and 160 MHz (\textit{above} and \textit{below}, respectively).   The left column is $M_{II}$ (upper left corner of Figure \ref{fig:mueller}); the right column has a color scale given by $M_p = \sqrt{M_{IQ}^2 + M_{IU}^2}$ and the marker indicates the orientation of the spin-2 function $M_{IQ} + i M_{IU}$.
+}
+}
+\label{fig:lin_pol_beam}
+\end{figure*}
+
 At low frequencies and the large scales probed by many low frequency interferometers, Stokes I is extremely bright compared to the other Stokes parameters \citep{Bernardi.09, Bernardi.10, Jelic.14, Jelic.15, Asad15, Kohn16, Lenc.17, Moore17}. Moreover, only a few polarized point sources have been observed at frequencies below 300 MHz \citep{Bernardi.13, Asad.16, Lenc.17}. \cite{Farnes.14} showed evidence for systematic depolarization of steep-spectrum point sources towards low frequencies, causing low polarization fractions ($\ll 1\%$) below 300 MHz. 
 
 These factors make the first column of $\mathcal{M}$, which represents $I\rightarrow I,\,Q,\,U,\,V$, the most interesting for low-frequency polarized power spectra, since with limited calibration we can expect leakage from Stokes I into the other Stokes parameters to dominate over Stokes Q, U and V emission alone. We proceeded to simulate $\mathcal{V}$ using our fully-polarized formalism for the HERA-19 commissioning array, described below, using an unpolarized model of the low frequency sky from the Global Sky Model \citep[GSM;][]{GSM.08, pygsm, GSM.17} at the appropriate R.A. range to match our observations. Forming power spectra from these visibilities allowed for a comparison of our data to a `leakage only' regime. We discuss the process for forming power spectra in Section~\ref{subsec:pspec}, and the simulated power spectra are shown in comparison to those from data in Section~\ref{sec:results}.
@@ -391,7 +400,7 @@ These factors make the first column of $\mathcal{M}$, which represents $I\righta
 \subsection{Direction-Independent Leakage}
 \label{subsec:DI-Leak}
 
-% I think you are using "ideal dipoles" to mean "ideal polarization feeds", but the ideal dipole does NOT have ideal polarization reponse.
+% I think you are using "ideal dipoles" to mean "ideal polarization feeds", but the ideal dipole does NOT have ideal polarization response.
 %If ideal dipoles were achievable, one could completely isolate Stokes parameters in the pseudo-Stokes visibilities \citep{Hamaker.96, TMS, Moore13}:
 In addition to the mixing of Stokes parameters due to the primary beam, it is possible to mix them in a direction independent way. Calibration errors are capable of leaking signal between pseudo-Stokes visibilities independent of the sky \citep{TMS}. Again focusing on the $I\rightarrow I,\,Q,\,U,\,V$ component of this leakage: $V^I \rightarrow V^Q$ occurs through errors in calibrating the complex voltage gain factors for each dipole arm, $V^I \rightarrow V^U$ occurs through the sum of off-diagonal gain terms (\textit{D}-terms; the receptivity of dipole arm `n' to an electric field vector aligned with arm `e' and vice versa), and $V^I \rightarrow V^V$ occurs through the difference in \textit{D}-terms between two feeds. 
 

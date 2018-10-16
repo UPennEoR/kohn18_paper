@@ -387,17 +387,16 @@ V^{ee}\end{array} \right) .
 \label{fig:mueller}
 \end{figure*}
 
-\begin{figure*}
+\begin{figure}
 \centering
-\includegraphics{M_p.png}
-%[scale=0.4]{hera19_linear_polarization_beam.pdf}
+\hspace{-0.5cm}\includegraphics[scale=0.6]{M_p.png}
 \caption{\edit1{The magnitude of the linear polarization leakage beam given by $\mathcal{M}_p = \sqrt{\mathcal{M}_{IQ}^2 + \mathcal{M}_{IU}^2}$, or the middle two entries of the top row of Figure \ref{fig:mueller}, at 120 MHz and 160 MHz (\textit{above} and \textit{below}, respectively).
 %A different view of the direction dependent Mueller matrix at 120 MHz and 160 MHz (\textit{above} and \textit{below}, respectively).   The left column is $\mathcal{M}_{II}$ (upper left corner of Figure \ref{fig:mueller}); the right column plots the spin-2 function $\mathcal{M}_{IQ} + i \mathcal{M}_{IU}$ with a color scale for the magnitude and a marker for the orientation.
 %has a color scale given by $\mathcal{M}_p = \sqrt{\mathcal{M}_{IQ}^2 + \mathcal{M}_{IU}^2}$ and the marker indicates the orientation of the spin-2 function $M_{IQ} + i M_{IU}$.
-}
-}
+}}
 \label{fig:lin_pol_beam}
-\end{figure*}
+\end{figure}
+
 
 At low frequencies and the large scales probed by many low frequency interferometers, Stokes I is extremely bright compared to the other Stokes parameters \citep{Bernardi.09, Bernardi.10, Jelic.14, Jelic.15, Asad15, Kohn16, Lenc.17, Moore17}. Moreover, only a few polarized point sources have been observed at frequencies below 300 MHz \citep{Bernardi.13, Asad.16, Lenc.17}. \cite{Farnes.14} showed evidence for systematic depolarization of steep-spectrum point sources towards low frequencies, causing low polarization fractions ($\ll 1\%$) below 300 MHz. 
 
@@ -418,7 +417,7 @@ We neglect calibration errors, and hence direction-independent leakage, in our s
 \section{Observations and Reduction}
 \label{sec:obs}
 
-In this work we used eight nights of observations from the HERA-19 commissioning array. HERA is a low-frequency interferometer composed of 14\,m-diameter dishes arranged in a close-packed hexagonal array of 14.7\,m spacing. The commissioning array consists of nineteen dishes (see Figure~\ref{fig:antpos}); HERA is being constructed in staged build-outs, and upon completion will consist of 350 dishes in a fractured hexagon configuration \citep[see][]{DillonParsons16, deBoer17}. A feed cage containing two dipole feeds (recycled from the PAPER array, see \citealt{Parsons.10}), oriented in North-South and East-West directions, is suspended above each dish \citep{Neben.16,Ewall-Wice.16,Thyagarajan.16}.
+In this work we used eight nights of observations from the HERA-19 commissioning array. HERA is a low-frequency interferometer composed of 14\,m-diameter dishes arranged in a close-packed hexagonal array of 14.7\,m spacing. The commissioning array consists of nineteen dishes (see Figure~\ref{fig:antpos}); HERA is being constructed in staged build-outs, and upon completion will consist of 350 dishes in a fractured hexagon configuration \citep[see][]{DillonParsons16, deBoer17}. A feed cage containing two dipole feeds (recycled from the PAPER array, see \citealt{Parsons.10}), oriented in North-South and East-West directions, was suspended above each dish \citep{Neben.16,Ewall-Wice.16,Thyagarajan.16}.
 
 HERA only observes in drift-scan mode. The observations we used were eight nights, from Julian Date (JD) 2457548 to 2457555; LSTs 10.5 -- 23 hr. Drift-scan visibilities were recorded every 10.7 seconds for 1024 evenly-spaced channels across the 100-200\,MHz bandwidth. These data were divided into {\sc miriad} data sets roughly 10 minutes long. A night's observation lasted 12 hours in total (6pm to 6am South African Standard Time; SAST); of these we used the central 10 hours, to avoid the Sun. \edit1{The details of our observations are summarized in Table~\ref{tab:params}.}
 
@@ -440,6 +439,7 @@ A red "X" marks antennae that were identified during preprocessing and calibrati
 \hline
 Parameter & Value \\
 \hline
+Array location & 30:43:17.5 S, 21:25:41.9 E \\
 JD range & 2457548 -- 2457555 \\
 LST Range & 10.6 -- 23 hrs \\
 Frequency range & 115 -- 185 MHz \\
@@ -457,10 +457,12 @@ Longest baseline & 58.XXX m \\
 \label{tab:params}
 \end{table}
 
-\edit1{\subsection{RFI Excision}}
+\edit1{\subsection{RFI Excision and Flagging}}
 
 To identify samples contaminated by radio frequency interference (RFI), a two-dimensional median filter in time and frequency was applied to the visibility data to smooth out high pixel-to-pixel variations, and remove significant outliers that were likely unphysical. The variance of the resulting data was computed, and points with a $z$-score greater than 6 (i.e., points where the value is more than 6$\sigma$ away from the mean) were flagged as initial seeds for RFI extraction. A two-dimensional watershed algorithm was applied using these seeds as starting points, enlarging the regions of RFI-contamination to neighboring pixels with z-scores greater than 2, until all such pixels were flagged. Figure~\ref{fig:rfi} shows the fractional RFI flag occupancy per time (displayed in LST) and frequency across the 8 days of observations. The majority of the band is relatively clear of RFI. Some clear features are: the FM radio band (below 110 MHz), ORBCOMM satellite communications (137 MHz), an ISS downlink (150 MHz) and VHF TV channels (above 170 MHz)\footnote{For an extended discussion of RFI as seen by HERA, see the public \href{http://reionization.org/wp-content/uploads/2013/03/HERAMemo19_HERA_dish_RFI.pdf}{\edit1{\underline{HERA Memo \#19}}}}.
 The Galaxy, when transiting zenith at LST$\approx$17.75 hours, is so bright that it appears to degrade our ability to flag RFI.
+
+\edit1{Four antennae were identified during the commissioning as having anomalous behavior. These are marked with red ``X"s in Figure~\ref{fig:antpos} and were omitted from further analysis.  Before calibration, we manually flagged the edges of the band (below 110 MHz and above 190 MHz), where spectral behavior is dominated by the high and low pass filtering in the HERA signal chain \citep{deBoer17}.}
 
 \begin{figure}
 \centering
@@ -472,96 +474,78 @@ The Galaxy, when transiting zenith at LST$\approx$17.75 hours, is so bright that
 \subsection{Calibration}
 \label{subsec:cal}
 
-HERA is designed to be calibrated using redundant calibration techniques \citep{DillonParsons16}, but for this preliminary view of HERA commissioning data, we used image-based calibration. Future studies with deeper integrations targeting EoR detections will take advantage of redundancy to obtain more precise calibration solutions \citep{deBoer17}. We used the \casa\ \citep{casa} package for calibration, taking advantage of its CLEAN, {\tt gaincal} and {\tt bandpass} functions.  \edit1{We first converted from native {\sc miriad} to a {\sc uvfits} file format using {\sc pyuvdata} \citep{pyuvdata}; this could then be ingested by \casa.}
+HERA is designed to be calibrated using redundant calibration techniques \citep{DillonParsons16}, but for this preliminary view of HERA commissioning data, we used image-based calibration. Future studies with deeper integrations targeting EoR detections will take advantage of redundancy to obtain more precise calibration solutions \citep{deBoer17}. We used the \casa\ \citep{casa} package for calibration, taking advantage of its CLEAN, {\tt gaincal} and {\tt bandpass} functions.  \edit1{We first converted from HERA's native {\sc miriad} to a {\sc uvfits} file format using {\sc pyuvdata} \citep{pyuvdata}; this could then be ingested by \casa.}
 
-\edit1{The calibration sources used in previous PAPER analysis, namely Pictor A \citep{jacobs14} and Fornax A were not available for this observing window (10.5 - 23 h RA), and the few long baselines available made calibration using individual fainter point sources difficult.  We therefore developed a calibration method using the Galactic Center (GC; taken to be at $\alpha, \delta$ = 17h 45m 40.04s, -29d 0m 28.12s) as modeled by the GSM, as implemented in pyGSM \citep{}.  Specifically, we selected four minutes of data centered at the transit of the GC to use for calibration.   The visibilities were phased from drift-scan made to a single phase center chosen to be the LST at the start of the observations.  Because the phase center is not adjusted on-the-fly during the mapping process (that is, because we are imperfectly approximating the tracking telescope assumed by \casa), the length of the observation was chosen to minimize the effects of beam-dependent gain variations as the GC transited.  The calibration was done as a two-step process.  First, we built a CLEAN model with the GC as an unpolarized, flat-spectrum source with an (arbitrary) flux density of 1 Jy.  This allowed us to solve for the large antenna based delay terms ({\tt gaintype='K'}; typically 10's of ns) and a complex bandpass.  With this first calibration in place, the second step was an interactive CLEAN of the GC, still assuming an unpolarized source, but allowing multiple components within a two degree radius centered on the GC.  This was followed by a second round of delay and bandpass calibration to this extended model.  At this point, it remained to determine the overall frequency-dependent amplitude to scale the gains from the arbitrary 1 Jy normalization.  For this we used our simulation of the GC from the GSM, converted to units of Jy, determining a single, spectrally-smooth function to place make the spectrum of the observations match the simulations.  The resulting gains }
-%
-%The initial goal of the calibration was simply to obtain the large antenna-dependent delay  
-%}
+\edit1{The brightest calibration sources near the Dec -30\arcdeg\ stripe - for example, those used in previous PAPER analyses like Pictor A \citep{jacobs13b} - were not available for this observing window (10.5 - 23 h RA), and the few long baselines in the array available made calibration using individual fainter point sources difficult.  We therefore developed a calibration method using the Galactic Center (GC; taken to be at $\alpha, \delta$ = 17h 45m 40s, -29d 0m 28s) as modeled by the GSM. Specifically, we selected four minutes of data centered at the transit of the GC to use for calibration.   The visibilities were phased from drift-scan mode to a single phase center chosen to be the LST at the start of the observations.  Because this phasing imperfectly approximates the tracking telescope assumed by \casa, the length of the observation was chosen to minimize the effects of beam-dependent gain variations as the GC transited.  The calibration was done as a two-step process.  First, we built an initial CLEAN model with the GC as an unpolarized, flat-spectrum source with flux density scaled to a reference point of 1 Jy.  This allowed us to solve for the large antenna based delay terms ({\tt gaintype='K'}; typically 10's of ns) and a complex bandpass.  A single solution was obtained for the 4 minute observation for each 100 kHz channel, resulting in a complex, frequency-dependent gain for each feed.	 With this first calibration in place, the second step was an interactive CLEAN of the GC, still assuming an unpolarized source, but allowing multiple components within a two degree radius centered on the GC.  This was followed by a second round of delay and bandpass calibration to the multi-component extended model of the same type as in the first round of calibration.  At this point, it remained to determine the overall frequency-dependent amplitude to scale the gains from the arbitrary 1 Jy normalization.  For this we used our simulation of the GC from the GSM (converted to units of Jy) to determine a single, spectrally-smooth function for all antennas to make the spectrum of the observations match the simulations.}
 
 Clearly, this is an incomplete calibration model. However, as the objective of this work is to explore the response of the instrument in power spectrum space without combining baselines of different lengths, most of the purpose of the calibration \edit1{was} correcting an initial large cable delay per antenna. 
 
+We did not attempt to calibrate \textit{D}-terms in this work.
+%This limited our interpretive power, which we discuss in Section~\ref{sec:results}.
+
 Treating the GC as unpolarized is adequate for this study. The large optical depth towards the GC \citep{Oppermann.12} results in large amounts depolarization in the plane of the Galaxy \citep{Wolleben.06}. Moreover, we expected non-negligible amounts of beam depolarization due to the large solid angle of the synthesized beam.
 
-For each night of observations, we used the {\sc CASA} {\tt gaincal} and {\tt bandpass} functions to obtain \edit1{per-frequency channel} phase and amplitude solutions for each antenna and dipole arm \edit1{at the ten minute interval corresponding to the transit of the GC. These routines used the GC model described above to form simulated visibilities, which could subsequently be fit to the data to determine the complex gains per antenna. The complex gain spectra per antenna were applied to the entire night of observations.} Four antennae had very deviant solutions, and their inclusion resulted in low-quality images. These were omitted from further analysis (and are marked with red ``X"s in Figure~\ref{fig:antpos}).  Before calibration, we manually flagged the edges of the band (below 110 MHz and above 190 MHz), where spectral behavior is dominated by the high and low pass filtering in the HERA signal chain \citep{deBoer17}.
-
-In Figure~\ref{fig:GCimage}, we show images formed from the simulated pseudo-Stokes visibilities (top panels) and our observations (bottom panels). These are multi-frequency synthesis images, where we used all unflagged frequencies on either side of the band edges; 115 MHz to 188 MHz. We do not specify a beam model during imaging. \edit1{All images shown were produced using the ten minute interval used for calibration.} At HERA's position ((latitude, longitude) = (-30:43:17.5, 21:25:41.9)) the Galactic Center transits 2$^{\circ}$ from zenith, while the HERA primary beam has a FWHM of $\sim5^{\circ}$ at 150\,MHz \citep{Neben.16}. For the simulated visibilities, we flagged the same antennae as in the data. As expected for a compact array, the Stokes I images capture only a low-resolution view of the Galactic Center. The simulated and observed visibilities form remarkably similar images in Stokes I, Q and U, but the simulation under-predicts pseudo-Stokes V power. We defer further discussion to Section~\ref{sec:results}.
-%Excesses visible at the position of the GC  in Stokes Q and Stokes V suggest gain errors at $\sim 1\%$ level and D-terms present at the $\sim 1\%$ level \citep{TMS}, if they are purely due to direction-independent leakage terms.
-
-
-
-%\begin{figure*}
-%\centering
-%\includegraphics[width=0.9\textwidth]{RealAndSim_FluxDensitySpectrum.png}
-%\caption{
-%The extracted Galactic Center spectrum from images of both the simulated and real data.  showing that spectral structure is due to real features of the sky and beam and not induced by the absolute calibration process.
-%}
-%\label{fig:GCSpectrum}
-%\end{figure*}
+\edit1{The resulting gains are shown in Figure~\ref{fig:bandpass}.  The gain amplitudes are clearly very similar in shape, with one outlier, and they cluster with 25\% of each other.  After removing the phase due to the delay term, the resulting phases show only small variations around their mean.  The derived bandpasses are clearly spectrally smooth, and thus, even if there are errors, we expect that they will not add additional spectral structure to the power spectrum (see Section \ref{})..  These gains were applied to all 8 nights of observations. It was found that this produced smaller day-to-day calibration variability than calibrating each day separately to the GC; see Section \ref{}.   
+}
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{gains.pdf}
 %{h19_2457458_abs_smallzoom_nolegend.png}
-\caption{Bandpass solutions for the North-South dipole orientation obtained for the functioning antennae in the array on JD 2457548. Differences in line color and style is merely to distinguish different antennae. Shaded regions indicate the effective sub-bands used for power spectrum analysis.  \edit1{The order of these figures changed.}}
+\caption{\edit1{Bandpass solutions obtained for both dipole orientations for all functioning antennae in the array on JD 2457548, and subsequently applied to all data.  Each antenna is marked by a different line color and style. Shaded regions indicate the effective sub-bands (the 10 MHz at the center of the 20 MHz Blackman-Harris window) used for power spectrum analysis.  The phase is shown after the removal the delay term.}}
 \label{fig:bandpass}
 \end{figure}
 
-\begin{figure*}
-\centering
-\includegraphics[width=0.9\textwidth]{sim4pol.pdf}
-\par\noindent\rule{0.8\textwidth}{0.4pt}
-\includegraphics[width=0.9\textwidth]{new4pol.pdf}
-\caption{
-\textit{Above}: Multi-frequency synthesis pseudo-Stokes images formed from simulation, where only a Stokes I sky was used; any polarized power is due to direction-dependent polarization leakage (see Section~\ref{subsec:DD-Leak}).
-\textit{Below}: Multi-frequency synthesis pseudo-Stokes images formed from observed visibilities on JD 2457548.
-Both sets of panels show the Galactic Center (our calibrator source) close to transit in pseudo-Stokes I, Q, U and V visibilities (\textit{top left, top right, lower left, lower right}). A Briggs-weighting with robustness 0 was used when gridding into the image plane. 
-	An interactive CLEAN with sources near the Galactic Center was performed.  
-	%No deconvolution was performed. 
-	The colorbar is in units of Jy/Beam.
-A separate color scale is used for Stokes I for suitable dynamic range. An R.A., Dec. grid is shown, illustrating the wide-field nature of HERA observations.
-}
-%The color scale is normalized to the peak flux of the Galactic Center in Stokes I.} %The excess at the center of the Stokes Q image suggests a $\sim 1\%$ error in the gain solutions, while the excess in Stokes V suggests D-terms at the $\sim 1\%$ level \citep{TMS}.}
-\label{fig:GCimage}
-\end{figure*}
-
-Example bandpass solutions from JD 2457548 are shown in Figure~\ref{fig:bandpass}. Although some residual RFI remains obvious, the derived bandpasses were smooth. Thus, even though the gains were imprecise, we expected that using them should not add additional spectral structure. \edit1{The $\sim$6 dB spread in bandpass amplitudes is within the expected range for the electronics used in the analog signal chain \citep[e.g.][]{deBoer17}.}
-
-
-
-The complex gain solutions were subsequently applied to the {\sc miriad} files. Figure~\ref{fig:phasecal} shows the effect of calibration on the visibilities of three nominally redundantly-spaced baselines. Shown in that figure are the phases of three $V^{nn}$ visibilities from 14.7\,m baselines before and after calibration. There were no shared antennae between the visibilities shown. The qualitative agreement is obvious, providing a consistency check on the solutions.
-%Our calibration was sufficient to enforce redundancy between these nominally-redundant baselines, which granted some verification of our methods.
+\edit1{
+Figure~\ref{fig:phasecal} shows the effect of calibration on the visibilities of three nominally redundantly-spaced baselines.  Shown in that figure are the phases of three $V^{nn}$ visibilities from 14.7\,m baselines before and after calibration. There were no shared antennae between the visibilities shown. The qualitative agreement is obvious, providing a consistency check on the solutions, and showing our sky-based model is 
+sufficient to enforce redundancy between these nominally-redundant baselines}.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.6]{phases_pre_post_abscal_h19_cyclic_grey.pdf}
-\caption{The effect of calibration on the phases of visibilities from three redundantly-spaced 14.7\,m baselines; \textit{nn} polarization. The color scale is cyclic; black is $\pm\pi/2$ and white is 0 and $\pm\pi$. \textit{Above}: before calibration; \textit{below}: after calibration. A simple sky model was sufficient to enforce redundancy for redundant baselines.}
+\caption{The effect of calibration on the phases of visibilities from three redundantly-spaced 14.7\,m baselines; \textit{nn} polarization. The color scale is cyclic; black is $\pm\pi/2$ and white is 0 and $\pm\pi$. \textit{Above}: before calibration; \textit{below}: after calibration.}
 \label{fig:phasecal}
 \end{figure}
 
-We did not attempt to calibrate \textit{D}-terms in this work.
-%This limited our interpretive power, which we discuss in Section~\ref{sec:results}.
 
-We down-selected to two relatively RFI-free 20 MHz sub-bands (Figure~\ref{fig:rfi}); 115 to 135 MHz and 152 to 172 MHz, henceforth referred to the ``low band" and the ``high band". As we discuss in Section~\ref{subsec:pspec}, these bands were multiplied by a Blackman-Harris window, centered on their central frequencies, before Fourier transforming in order to minimize side-lobes. This windowing lead to an noise-effective bandwidth of 10 MHz, appropriate for EoR analyses since the {\sc hi} signal is to a reasonable approximation coeval over the corresponding redshift range \citep{Furlanetto06}.
 
-Pseudo-Stokes visibilities were formed from the instrumental polarizations, following Equation~\ref{eq:pseudo-stokes}. These visibilities were then scaled to the appropriate amplitude using a model for the GC spectrum 
+In Figure~\ref{fig:GCimage}, we show images formed from the simulated pseudo-Stokes visibilities (top panels) and our observations (bottom panels). These are multi-frequency synthesis images, where we used all unflagged frequencies on either side of the band edges; 115 MHz to 188 MHz. \edit1{The primary beam has not been deconvolved from these images. All images shown were produced using the same four minute interval used for calibration. Note that at HERA's latitude the Galactic Center transits 2$^{\circ}$ north of zenith, while the HERA primary beam has a FWHM of $\sim5^{\circ}$ at 150\,MHz \citep{Neben.16}. For the simulated visibilities, we flagged the same antennae and channels as in the data.}  As expected for a compact array, the Stokes I images capture only a low-resolution view of the Galactic Center. The simulated and observed visibilities form remarkably similar images in Stokes I, Q and U, but the simulation under-predicts pseudo-Stokes V power. We defer further discussion to Section~\ref{sec:results}.
+%Excesses visible at the position of the GC  in Stokes Q and Stokes V suggest gain errors at $\sim 1\%$ level and D-terms present at the $\sim 1\%$ level \citep{TMS}, if they are purely due to direction-independent leakage terms.
+%The color scale is normalized to the peak flux of the Galactic Center in Stokes I.} %The excess at the center of the Stokes Q image suggests a $\sim 1\%$ error in the gain solutions, while the excess in Stokes V suggests D-terms at the $\sim 1\%$ level \citep{TMS}.}
 
-\begin{equation}
-S_{\rm Sgr A^*}(\nu) \approx  3709 {\rm\, Jy} \times (\nu/408 {\rm \,MHz})^{-0.5}
-\label{eq:freq_scale}
-\end{equation}
-drawn from the Global Sky Model \citep[GSM;][]{GSM.08,pygsm,GSM.17}. Note that the GSM is inherently $\sim 5\%$ uncertain at these frequencies. We note that this scaling is heavily resolution dependent; we are treating the Galactic Center as a point source when it is extended in reality. However, Section~\ref{sec:results} we show that we obtain sensible power levels for the foregrounds and noise, lending confidence to our overall scaling.
-
+\begin{figure*}
+\centering
+\includegraphics[width=0.7\textwidth]{sim4pol_new.pdf}
+%{sim4pol.pdf}
+\vspace{-0.1in}
+\par\noindent\rule{0.8\textwidth}{0.4pt}
+\includegraphics[width=0.7\textwidth]
+{real4pol_new.pdf}
+%{new4pol.pdf}
+\caption{
+\textit{Above}: Multi-frequency synthesis pseudo-Stokes images formed from simulation, where only a Stokes I sky was used; any polarized power is due to direction-dependent polarization leakage (see Section~\ref{subsec:DD-Leak}).
+\textit{Below}: Multi-frequency synthesis pseudo-Stokes images formed from observed visibilities on JD 2457548.
+Both sets of panels show the Galactic Center (our calibrator source) close to transit in pseudo-Stokes I, Q, U and V visibilities (\textit{top left, top right, lower left, lower right}). A Briggs-weighting with robustness 0 was used when gridding into the image plane. 
+	No deconvolution was performed. 
+	The colorbar is in units of Jy/Beam.
+A separate color scale is used for Stokes I for suitable dynamic range. An R.A., Dec. grid is shown, illustrating the wide-field nature of HERA observations.
+}
+\label{fig:GCimage}
+\end{figure*}
 
 \subsection{Forming power spectra}
 \label{subsec:pspec}
-Power spectra were formed according to the method used in \cite{Pober13} and \cite{Kohn16}, which we briefly review here. All Fourier transforms were windowed using a Blackman-Harris window at the center of the sub-band, which minimized sidelobes. \cite{Parsons.12a} define the \textit{delay transform} as the Fourier transform of a visibility for baseline $ij$ and pseudo-Stokes parameter $P$ along the frequency axis
 
+
+Power spectra were formed according to the method used in \cite{Pober13} and \cite{Kohn16}, which we briefly review here. \cite{Parsons.12a} define the \textit{delay transform} as the Fourier transform of a visibility for baseline $ij$ and pseudo-Stokes parameter $P$ along the frequency axis
 \begin{equation}
 \tilde{V}_{ij}^{P}(\tau, t) = \int {\rm d}\nu \tilde{V}_{ij}^{P}(\nu, t)e^{2\pi i \nu \tau}.
 \end{equation}
 
-We note that using a Blackman-Harris window will induce a correlation between consecutive $\tau$ modes. The Fourier transform of the window function in frequency will be sharply peaked in the delay space, and can be ignored to some extent. Hence the self-correlation of $V_{ij}^{P}(\tau, t)$ can be used to define the power spectrum, although the small correlation of different $\tau$ modes could effect the variance of the power spectrum \citep{Parsons14}.
+\edit1{
+We down-selected to two relatively RFI-free 20 MHz sub-bands (Figure~\ref{fig:rfi}); 115 to 135 MHz and 152 to 172 MHz, henceforth referred to the ``low band" and the ``high band" in which to compute the power spectrum. The bands were multiplied by a Blackman-Harris window, centered on their central frequencies, before Fourier transforming, in order to minimize side-lobes. This windowing led to an noise-effective bandwidth of 10 MHz, appropriate for EoR analyses since the {\sc hi} signal is to a reasonable approximation coeval over the corresponding redshift range \citep{Furlanetto06}.
+We note that using a Blackman-Harris window will induce a correlation between adjacent $\tau$ modes. }
+%The Fourier transform of the window function in frequency will be sharply peaked in the delay space, and can be ignored to some extent. Hence the self-correlation of $V_{ij}^{P}(\tau, t)$ can be used to define the power spectrum, although the small correlation of different $\tau$ modes could effect the variance of the power spectrum \citep{Parsons14}.
 
 The power at each delay-mode and baseline can be represented in terms of their respective Fourier components $k_{\parallel}$ and $k_{\perp}$ \citep{Parsons.12a, Nithya.15b}:
 \begin{multline}
@@ -572,14 +556,16 @@ k_{\perp} = \frac{2\pi}{D(z) \lambda} b\\
 \end{multline}
 for: bandwidth $B$, angular area of the beam $\Omega$, $\nu_{\rm 21cm}\approx$1420 MHz, baseline length $b$, wavelength of observation $\lambda$, Hubble parameter $H(z)$, transverse comoving distance $D(z)$ and redshift-dependent scalars X and Y \citep{Parsons.12b}. Note that the angular area of the beam refers to the diagonal components of the Mueller matrices shown in Figure~\ref{fig:mueller}. For further discussion of forming polarized power spectra in $k$-space, refer to \cite{Nunhokee.17}.
 
-To avoid a noise-bias when forming the $ |\tilde{V}_{ij}^{P}(\tau, t) |^2$ term, we cross-multiplied consecutive integrations, rephasing the zenith angle of the latter to the former:
-
+To avoid a noise bias when forming the power spectrum, 
+%$ |\tilde{V}_{ij}^{P}(\tau, t) |^2$ term, 
+we cross-multiplied consecutive integrations, rephasing the zenith angle of the latter to the former:
 \begin{equation}
  | \tilde{V}_{ij}^{P}(\tau, t) |^2 \approx | \tilde{V}_{ij}^{P}(\tau, t) \times \tilde{V}_{ij}^{P}(\tau, t+\Delta t)e^{i\theta_{ij,\rm zen}(\Delta t)}|
 \end{equation}
 where $\theta_{ij,\rm zen}(\Delta t)$ was the appropriate phasing for baseline $ij$ and $\Delta t = 10.7$ seconds.
 
-Pseudo-stokes power spectra were formed for each pair of integrations, for every baseline. After forming power spectra, baselines of identical lengths were averaged together \edit1{for all observation times}. Appealing to cosmological isotropy, baselines of the same length but different orientation should be sampling the same cosmological structure. These 2D power spectra were averaged over our 8 days of observations. Note that all averaging was performed after forming power spectra; this incoherent averaging was non-optimal from a signal-to-noise perspective outside the wedge, slightly reducing our sensitivity in the EoR window. However, the intention of this investigation was not a deep integration on noise; we were more interested in the polarized response of the instrument. As such, the power spectra presented in the Section below should be interpreted as approximate.
+Pseudo-stokes power spectra were formed for each pair of integrations, for every baseline. After forming power spectra, baselines of identical lengths were averaged together \edit1{for all observation times}. Appealing to cosmological isotropy, baselines of the same length but different orientation should be sampling the same cosmological structure. These 2D power spectra were averaged over our 8 days of observations. Note that all averaging was performed after forming power spectra; this incoherent averaging was non-optimal from a signal-to-noise perspective outside the wedge, slightly reducing our sensitivity in the EoR window. However, the intention of this investigation was not a deep integration on noise; we were more interested in the polarized response of the instrument. 
+%As such, the power spectra presented in the Section below should be interpreted as approximate.
 
 \section{Results \& Discussion}
 \label{sec:results}
@@ -607,6 +593,7 @@ These noise power estimates were roughly corroborated by our observations (see F
 
 \subsection{General features of the power spectra}
 \label{subsec:general_features}
+
 The most striking feature of these power spectra is the degree of foreground isolation achieved in all pseudo-Stokes parameters. \edit1{In a similar study of 2D polarized power spectra, PAPER \citep{Kohn16} measurements showed a ``filled" region of Fourier space out to the edge of the EoR window} (in the delay-spectrum paradigm, this corresponds to the horizon; zenith angle $\pm$90$^{\circ}$), with some supra-horizon leakage \citep{Pober13} into the EoR window itself. The power spectra in Figures~\ref{fig:pitchforks_highband} and \ref{fig:pitchforks_lowband} show no such behavior; all foreground emission appears to be contained within a narrow region around $k_{\parallel}=0$ h/Mpc. This behavior was predicted for an array of HERA-like dishes by \citealt{Nithya.15b} (although that study only concentrated on the Stokes I component). 
 
 %The lack of power on the horizon suggests that the sidelobes of the beam pattern are extremely suppressed at the horizon, exceeding the forecasts based on the HERA dish prototype by \cite{Neben.16} and the beam models used in this study. This discrepancy could be due to the fact that \cite{Neben.16} and \cite{Fagnoni.16} consider a HERA dish in isolation, when in reality they are densely packed in a hexagonal array. Lack of horizon power could also indicate very little cross-coupling (over-the-air crosstalk) between the feeds \citep{Teja.16}. Of course, it could also be due to a mixture of these effects. 
@@ -615,9 +602,9 @@ Power at horizon delays, as predicted by \cite{Nithya.15b} and \cite{Neben.16}, 
 
 \begin{figure*}[h]
 \centering
-\includegraphics[scale=0.45]{timeavg_SIM_high.pdf}
-\includegraphics[scale=0.45]{timeavg_high.pdf}
-\includegraphics[scale=0.35]{timeavg_1d_high.pdf}
+\includegraphics[scale=0.45]{simdata_highband_8day_2D.pdf}
+\includegraphics[scale=0.45]{realdata_highband_8day_2D.pdf}
+\includegraphics[scale=0.35]{realdata_highband_8day_1D.pdf}
 \caption{Results from the high-band (157--167 MHz). White dotted lines indicate the boundary of the pitchfork and the EoR window. A black dotted line indicates the $k_{\parallel}=0$\,h/Mpc line. \textit{Top}: Simulated power spectra in Stokes I, Q, U and V, following the formalism in Section~\ref{sec:leak} -- no polarized sky model was used, so power in Stokes Q, U and V was only due to direction-dependent leakage from Stokes I. No instrumental noise was included in the simulation. \textit{Middle}: Eight-day average power spectra from data. \textit{Bottom}: The same data as shown in the middle panel, but with each baseline length overlaid on one another to allow shared features to be more easily identified.}
 \label{fig:pitchforks_highband}
 \end{figure*}

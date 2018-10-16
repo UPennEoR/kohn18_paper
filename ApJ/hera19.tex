@@ -13,7 +13,8 @@
 
 \begin{document}
 
-\title{Polarized Foreground Power Spectra from the HERA-19 Commissioning Array}
+\title{\bf{The HERA-19 Commissioning Array: Direction Dependent Effects}}
+%{Polarized Foreground Power Spectra from the HERA-19 Commissioning Array}
 
 %\correspondingauthor{Saul A. Kohn}
 %\email{saulkohn@sas.upenn.edu}
@@ -21,40 +22,40 @@
 \email{jaguirre@sas.upenn.edu}
 
 \author{Saul A. Kohn}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+\affiliation{Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
 \author{James E. Aguirre}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+\affiliation{Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
 \author{Paul La Plante}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+\affiliation{Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
 \author{Tashalee S. Billings}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+\affiliation{Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
 \author{Paul M. Chichura}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+\affiliation{Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
 \author{Austin F. Fortino}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+\affiliation{Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
 \author{Amy S. Igarashi}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+\affiliation{Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 \affiliation{Department of Astronomy, San Diego State University, San Diego, CA 92182 USA}
 
 \author{Roshan K. Benefo}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+\affiliation{Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
 \author{Samavarti Gallardo}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+\affiliation{Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 \affiliation{California State University of Los Angeles, 5151 State University Dr, Los Angeles, CA 90032 USA}
 
 \author{Zachary E. Martinot}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+\affiliation{Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
 \author{Chuneeta D. Nunhokee}
 \affiliation{Department of Physics and Electronics, Rhodes University, PO Box 94, Grahamstown, 6140, South Africa}
-\affiliation{Center for Particle Cosmology, Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
+\affiliation{Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104 USA}
 
 %% begin builders list
 
@@ -325,8 +326,8 @@ Unless $\mathcal{J}$ is both diagonal and, at any given point on the sphere, the
 
 \subsection{Direction-Dependent Leakage}
 \label{subsec:DD-Leak}
-The cosmological signal of interest for 21cm cosmology studies is effectively unpolarized, and we therefore use the pseudo-Stokes\footnote{We use ``pseudo-Stokes" to refer to Stokes parameters formed from visibilities throughout this work, as they are proxies for the real ``Stokes parameters" as defined by the IEEE \citep{Ludwig.73, vanStraten.10}.} I visibility to measure it; $V^{I} = V^{nn} + V^{ee}$, which is the trace of $\mathcal{V}$ \citep[e.g.][]{Moore13}:
 
+The cosmological signal of interest for 21cm cosmology studies is effectively unpolarized, and we therefore use the pseudo-Stokes\footnote{We use ``pseudo-Stokes" to refer to Stokes parameters formed from visibilities throughout this work, \edit1{to distinguish from true} ``Stokes parameters" \edit1{defined in the image domain} by the IEEE \citep{Ludwig.73, vanStraten.10}.} I visibility to measure it \edit1{\citep[e.g.][]{Moore13}; this is defined $V^{I} = V^{nn} + V^{ee}$, which is the trace of $\mathcal{V}$}:
 \begin{multline}
 V^I_{ij}(\nu) = \rm{Tr}(\mathcal{V}_{ij}) = \int \rm{Tr}(\mathcal{J}_i\mathcal{C}\mathcal{J}_j^{\dagger}) \exp(-2\pi i \nu \vec{b} \cdot \hat{s} / c)  {\rm d}\Omega \\
 = \int (\mathcal{M}_{00}I + \mathcal{M}_{01}Q + \mathcal{M}_{02}U + \mathcal{M}_{03}V)\exp(-2\pi i \nu \vec{b}\cdot\hat{s} / c){\rm d}\Omega 
@@ -336,7 +337,7 @@ where $I$, $Q$, $U$ and $V$ are the true Stokes sky and are functions of directi
 \begin{equation}
 \mathcal{M}_{ab}(\hat{s},\nu) = {\rm Tr}(\sigma_a \mathcal{J} \sigma_b \mathcal{J}^{\dagger})
 \end{equation}
-and $\sigma_i$ are the Pauli matrices (where the indices are reordered from the quantum mechanical convention to an order which gives the ordering of the Stokes vector as ($I$, $Q$, $U$, $V$). See \citealt{Shaw.15.1}).
+and $\sigma_i$ are the Pauli matrices (where the indices are reordered from the quantum mechanical convention to an order which gives the ordering of the Stokes vector as ($I$, $Q$, $U$, $V$); see, e.g., \citealt{Shaw.15.1}).
 
 We simulated the HERA feed, faceted parabolic dish and analog signal chain using CST\footnote{\url{www.cst.com}} to generate the complex $\vec{E}$-field receptivity patterns, as described in \cite{Fagnoni.16} (also see public \href{http://reionization.org/wp-content/uploads/2013/03/HERA_memo_21_CST_simulation_of_HERA_and_comparison_with_measurements.pdf}{\edit1{\underline{HERA Memo \#21}}}), and then formed $\mathcal{J}$ and $\mathcal{M}$ as described above. Examples of $\mathcal{M}_{ij}$ at 120 MHz and 160 MHz (our low and high bands of interest; see Section~\ref{subsec:cal}) are shown in Figure~\ref{fig:mueller}, projected in the RA/Dec basis. Note that this basis has a singularity at the South Pole, leading to wide-field asymmetries in Q and U. Due to the large spread in dynamic ranges between $\mathcal{M}_{00}$, other diagonal terms and off-diagonal terms, we use separate color maps for each. All of the dynamic ranges are normalized to the peak of $\mathcal{M}_{00}$, which  is 1 at zenith. The off-diagonal terms are 2- to 8-orders of magnitude less than the diagonal terms.
 
@@ -386,14 +387,19 @@ V^{ee}\end{array} \right) .
 
 \begin{figure*}
 \centering
-\includegraphics[scale=0.4]{hera19_linear_polarization_beam.pdf}
-\caption{\edit1{A different view of the direction dependent Mueller matrix at 120 MHz and 160 MHz (\textit{above} and \textit{below}, respectively).   The left column is $M_{II}$ (upper left corner of Figure \ref{fig:mueller}); the right column has a color scale given by $M_p = \sqrt{M_{IQ}^2 + M_{IU}^2}$ and the marker indicates the orientation of the spin-2 function $M_{IQ} + i M_{IU}$.
+\includegraphics{M_p.png}
+%[scale=0.4]{hera19_linear_polarization_beam.pdf}
+\caption{\edit1{The magnitude of the linear polarization leakage beam given by $\mathcal{M}_p = \sqrt{\mathcal{M}_{IQ}^2 + \mathcal{M}_{IU}^2}$, or the middle two entries of the top row of Figure \ref{fig:mueller}, at 120 MHz and 160 MHz (\textit{above} and \textit{below}, respectively).
+%A different view of the direction dependent Mueller matrix at 120 MHz and 160 MHz (\textit{above} and \textit{below}, respectively).   The left column is $\mathcal{M}_{II}$ (upper left corner of Figure \ref{fig:mueller}); the right column plots the spin-2 function $\mathcal{M}_{IQ} + i \mathcal{M}_{IU}$ with a color scale for the magnitude and a marker for the orientation.
+%has a color scale given by $\mathcal{M}_p = \sqrt{\mathcal{M}_{IQ}^2 + \mathcal{M}_{IU}^2}$ and the marker indicates the orientation of the spin-2 function $M_{IQ} + i M_{IU}$.
 }
 }
 \label{fig:lin_pol_beam}
 \end{figure*}
 
 At low frequencies and the large scales probed by many low frequency interferometers, Stokes I is extremely bright compared to the other Stokes parameters \citep{Bernardi.09, Bernardi.10, Jelic.14, Jelic.15, Asad15, Kohn16, Lenc.17, Moore17}. Moreover, only a few polarized point sources have been observed at frequencies below 300 MHz \citep{Bernardi.13, Asad.16, Lenc.17}. \cite{Farnes.14} showed evidence for systematic depolarization of steep-spectrum point sources towards low frequencies, causing low polarization fractions ($\ll 1\%$) below 300 MHz. 
+
+\edit1{The ``linear polarization leakage beam'' is shown for the two central frequencies of this analysis in Figure \ref{fig:lin_pol_beam}.   This quantity is the magnitude of the spin-2 function $\mathcal{M}_{IQ} + i \mathcal{M}_{IU}$ and represents the amplitude of the direction-dependent leakage of Stokes Q and U into I.}
 
 These factors make the first column of $\mathcal{M}$, which represents $I\rightarrow I,\,Q,\,U,\,V$, the most interesting for low-frequency polarized power spectra, since with limited calibration we can expect leakage from Stokes I into the other Stokes parameters to dominate over Stokes Q, U and V emission alone. We proceeded to simulate $\mathcal{V}$ using our fully-polarized formalism for the HERA-19 commissioning array, described below, using an unpolarized model of the low frequency sky from the Global Sky Model \citep[GSM;][]{GSM.08, pygsm, GSM.17} at the appropriate R.A. range to match our observations. Forming power spectra from these visibilities allowed for a comparison of our data to a `leakage only' regime. We discuss the process for forming power spectra in Section~\ref{subsec:pspec}, and the simulated power spectra are shown in comparison to those from data in Section~\ref{sec:results}.
 
@@ -417,7 +423,10 @@ HERA only observes in drift-scan mode. The observations we used were eight night
 \begin{figure}
 \centering
 \hspace{-0.5cm}\includegraphics[scale=0.6]{antpos_hera19.pdf}
-\caption{The perimeter of each dish in the HERA-19 array.  A red "X" marks antennae that were identified during preprocessing and calibration as malfunctioning and were excluded from further analysis.}
+\caption{\edit1{The configuration of the HERA-19 array.} The perimeter of each dish 
+%in the HERA-19 array. 
+\edit1{is shown as a circle.} 
+A red "X" marks antennae that were identified during preprocessing and calibration as malfunctioning and were excluded from further analysis.}
 \label{fig:antpos}
 \end{figure}
 
@@ -464,11 +473,17 @@ The Galaxy, when transiting zenith at LST$\approx$17.75 hours, is so bright that
 HERA is designed to be calibrated using redundant calibration techniques \citep{DillonParsons16}, but for this preliminary view of HERA commissioning data, we used image-based calibration. Future studies with deeper integrations targeting EoR detections will take advantage of redundancy to obtain more precise calibration solutions \citep{deBoer17}. We used the {\sc CASA} \citep{casa} package for calibration, taking advantage of its CLEAN, {\tt gaincal} and {\tt bandpass} functions.
 
 To enable the use of {\sc CASA}, we first converted from native {\sc miriad} to a {\sc uvfits} file format which could be ingested by {\sc CASA} using {\sc pyuvdata} \citep{pyuvdata}. 
-Using LSTs in which the Galactic center (GC; $\alpha, \delta$ = 17h 45m 40.04s, -29d 0m 28.12s) was transiting, we built a CLEAN model which modeled the GC as an unpolarized point source of strength 1 Jy and flat spectrum, which could be scaled appropriately later (see Equation~\ref{eq:freq_scale}). 
+
+
+
+%Using LSTs in which the Galactic center (GC; $\alpha, \delta$ = 17h 45m 40.04s, -29d 0m 28.12s) was transiting, we built a CLEAN model which modeled the GC as an unpolarized point source of strength 1 Jy and flat spectrum, which could be scaled appropriately later (see Equation~\ref{eq:freq_scale}). 
 Clearly, this is an incomplete calibration model. However, as the objective of this work is to explore the response of the instrument in power spectrum space without combining baselines of different lengths, most of the purpose of the calibration \edit1{was} correcting an initial large cable delay per antenna. 
+
 Treating the GC as unpolarized is adequate for this study. The large optical depth towards the GC \citep{Oppermann.12} results in large amounts depolarization in the plane of the Galaxy \citep{Wolleben.06}. Moreover, we expected non-negligible amounts of beam depolarization due to the large solid angle of the synthesized beam.
 
-\edit1{Need to describe the new calibration scheme}
+\edit1{The calibration sources used in previous PAPER analysis, namely Pictor A \citep{jacobs14} and Fornax A were not available for this observing window (10.5 - 23 h RA), and the few long baselines available made calibration using fainter individual sources difficult.  We therefore developed an approach to calibration using the diffuse GSM, as implemented in pyGSM \citep{}.}
+
+
 
 
 

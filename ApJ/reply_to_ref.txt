@@ -32,6 +32,8 @@ We have added this calculation to the text, in the Discussion section.
 a) In Section 3.1, calibration uses a clean model of the Galactic Center (as a 1 Jy point source) for calibration. However, the GC is extended in nature, what is the extent of GC ? Also, the visibilities are scaled with GC flux extrapolated from the GSM at 408 MHz, which has ~5% uncertainty at lower frequency. I think this is a poor choice of calibration strategy for the analysis shown in paper. This should be justified. Aside, previous PAPER analyses have used sources such as Pictor A and Fornax A for flux calibration, and since HERA and PAPER are at same location, why wasn't Pictor A and Fornax A used in the calibration ? 
 
 >>> <<<
+
+
 Fornax A and Pictor A were beneath the horizon for the duration of these observations.
 
 b) The calibration step uses gaincal and bandpass functions of CASA package. What are the inputs for these functions ? The time and frequency resolution of calibration solutions should be specified. Were the solutions obtained per snapshot or a single solution was applied per 10 minutes? 

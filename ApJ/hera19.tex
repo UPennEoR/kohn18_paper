@@ -8,6 +8,8 @@
 \usepackage{amsmath}
 %\submitjournal{ApJ}
 
+\newcommand{\casa}{{\sc casa}}
+
 \shorttitle{Polarized power spectra from HERA-19}
 \shortauthors{Kohn et al.}
 
@@ -470,22 +472,16 @@ The Galaxy, when transiting zenith at LST$\approx$17.75 hours, is so bright that
 \subsection{Calibration}
 \label{subsec:cal}
 
-HERA is designed to be calibrated using redundant calibration techniques \citep{DillonParsons16}, but for this preliminary view of HERA commissioning data, we used image-based calibration. Future studies with deeper integrations targeting EoR detections will take advantage of redundancy to obtain more precise calibration solutions \citep{deBoer17}. We used the {\sc CASA} \citep{casa} package for calibration, taking advantage of its CLEAN, {\tt gaincal} and {\tt bandpass} functions.
+HERA is designed to be calibrated using redundant calibration techniques \citep{DillonParsons16}, but for this preliminary view of HERA commissioning data, we used image-based calibration. Future studies with deeper integrations targeting EoR detections will take advantage of redundancy to obtain more precise calibration solutions \citep{deBoer17}. We used the \casa\ \citep{casa} package for calibration, taking advantage of its CLEAN, {\tt gaincal} and {\tt bandpass} functions.  \edit1{We first converted from native {\sc miriad} to a {\sc uvfits} file format using {\sc pyuvdata} \citep{pyuvdata}; this could then be ingested by \casa.}
 
-To enable the use of {\sc CASA}, we first converted from native {\sc miriad} to a {\sc uvfits} file format which could be ingested by {\sc CASA} using {\sc pyuvdata} \citep{pyuvdata}. 
+\edit1{The calibration sources used in previous PAPER analysis, namely Pictor A \citep{jacobs14} and Fornax A were not available for this observing window (10.5 - 23 h RA), and the few long baselines available made calibration using individual fainter point sources difficult.  We therefore developed a calibration method using the Galactic Center (GC; taken to be at $\alpha, \delta$ = 17h 45m 40.04s, -29d 0m 28.12s) as modeled by the GSM, as implemented in pyGSM \citep{}.  Specifically, we selected four minutes of data centered at the transit of the GC to use for calibration.   The visibilities were phased from drift-scan made to a single phase center chosen to be the LST at the start of the observations.  Because the phase center is not adjusted on-the-fly during the mapping process (that is, because we are imperfectly approximating the tracking telescope assumed by \casa), the length of the observation was chosen to minimize the effects of beam-dependent gain variations as the GC transited.  The calibration was done as a two-step process.  First, we built a CLEAN model with the GC as an unpolarized, flat-spectrum source with an (arbitrary) flux density of 1 Jy.  This allowed us to solve for the large antenna based delay terms ({\tt gaintype='K'}; typically 10's of ns) and a complex bandpass.  With this first calibration in place, the second step was an interactive CLEAN of the GC, still assuming an unpolarized source, but allowing multiple components within a two degree radius centered on the GC.  This was followed by a second round of delay and bandpass calibration to this extended model.  At this point, it remained to determine the overall frequency-dependent amplitude to scale the gains from the arbitrary 1 Jy normalization.  For this we used our simulation of the GC from the GSM, converted to units of Jy, determining a single, spectrally-smooth function to place make the spectrum of the observations match the simulations.  The resulting gains }
+%
+%The initial goal of the calibration was simply to obtain the large antenna-dependent delay  
+%}
 
-
-
-%Using LSTs in which the Galactic center (GC; $\alpha, \delta$ = 17h 45m 40.04s, -29d 0m 28.12s) was transiting, we built a CLEAN model which modeled the GC as an unpolarized point source of strength 1 Jy and flat spectrum, which could be scaled appropriately later (see Equation~\ref{eq:freq_scale}). 
 Clearly, this is an incomplete calibration model. However, as the objective of this work is to explore the response of the instrument in power spectrum space without combining baselines of different lengths, most of the purpose of the calibration \edit1{was} correcting an initial large cable delay per antenna. 
 
 Treating the GC as unpolarized is adequate for this study. The large optical depth towards the GC \citep{Oppermann.12} results in large amounts depolarization in the plane of the Galaxy \citep{Wolleben.06}. Moreover, we expected non-negligible amounts of beam depolarization due to the large solid angle of the synthesized beam.
-
-\edit1{The calibration sources used in previous PAPER analysis, namely Pictor A \citep{jacobs14} and Fornax A were not available for this observing window (10.5 - 23 h RA), and the few long baselines available made calibration using fainter individual sources difficult.  We therefore developed an approach to calibration using the diffuse GSM, as implemented in pyGSM \citep{}.}
-
-
-
-
 
 For each night of observations, we used the {\sc CASA} {\tt gaincal} and {\tt bandpass} functions to obtain \edit1{per-frequency channel} phase and amplitude solutions for each antenna and dipole arm \edit1{at the ten minute interval corresponding to the transit of the GC. These routines used the GC model described above to form simulated visibilities, which could subsequently be fit to the data to determine the complex gains per antenna. The complex gain spectra per antenna were applied to the entire night of observations.} Four antennae had very deviant solutions, and their inclusion resulted in low-quality images. These were omitted from further analysis (and are marked with red ``X"s in Figure~\ref{fig:antpos}).  Before calibration, we manually flagged the edges of the band (below 110 MHz and above 190 MHz), where spectral behavior is dominated by the high and low pass filtering in the HERA signal chain \citep{deBoer17}.
 

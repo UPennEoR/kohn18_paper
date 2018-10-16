@@ -556,15 +556,16 @@ k_{\perp} = \frac{2\pi}{D(z) \lambda} b\\
 \end{multline}
 for: bandwidth $B$, angular area of the beam $\Omega$, $\nu_{\rm 21cm}\approx$1420 MHz, baseline length $b$, wavelength of observation $\lambda$, Hubble parameter $H(z)$, transverse comoving distance $D(z)$ and redshift-dependent scalars X and Y \citep{Parsons.12b}. Note that the angular area of the beam refers to the diagonal components of the Mueller matrices shown in Figure~\ref{fig:mueller}. For further discussion of forming polarized power spectra in $k$-space, refer to \cite{Nunhokee.17}.
 
-To avoid a noise bias when forming the power spectrum, 
+\edit1{To avoid a noise bias when forming the power spectrum, 
 %$ |\tilde{V}_{ij}^{P}(\tau, t) |^2$ term, 
-we cross-multiplied consecutive integrations, rephasing the zenith angle of the latter to the former:
+we cross-multiplied consecutive integrations (each having independent noise), rephasing the zenith angle of the latter to the former:
 \begin{equation}
  | \tilde{V}_{ij}^{P}(\tau, t) |^2 \approx | \tilde{V}_{ij}^{P}(\tau, t) \times \tilde{V}_{ij}^{P}(\tau, t+\Delta t)e^{i\theta_{ij,\rm zen}(\Delta t)}|
 \end{equation}
 where $\theta_{ij,\rm zen}(\Delta t)$ was the appropriate phasing for baseline $ij$ and $\Delta t = 10.7$ seconds.
 
-Pseudo-stokes power spectra were formed for each pair of integrations, for every baseline. After forming power spectra, baselines of identical lengths were averaged together \edit1{for all observation times}. Appealing to cosmological isotropy, baselines of the same length but different orientation should be sampling the same cosmological structure. These 2D power spectra were averaged over our 8 days of observations. Note that all averaging was performed after forming power spectra; this incoherent averaging was non-optimal from a signal-to-noise perspective outside the wedge, slightly reducing our sensitivity in the EoR window. However, the intention of this investigation was not a deep integration on noise; we were more interested in the polarized response of the instrument. 
+Pseudo-stokes power spectra were formed for each pair of integrations, for every baseline. After forming power spectra, baselines of identical lengths were averaged together \edit1{for all observation times}.  Appealing to cosmological isotropy, baselines of the same length but different orientation should be sampling the same cosmological structure. These 2D power spectra were averaged over our 8 days of observations. \edit1{Note that all averaging was performed after forming power spectra; this incoherent averaging is non-optimal for achieving the greatest sensitivity in the EoR window. However, the intention of this investigation was not a deep integration on noise, but rather a first look at calibration and foreground properties as observed through the polarized beam.}
+% we were more interested in the polarized response of the instrument. 
 %As such, the power spectra presented in the Section below should be interpreted as approximate.
 
 \section{Results \& Discussion}
@@ -604,16 +605,17 @@ Power at horizon delays, as predicted by \cite{Nithya.15b} and \cite{Neben.16}, 
 \centering
 \includegraphics[scale=0.45]{simdata_highband_8day_2D.pdf}
 \includegraphics[scale=0.45]{realdata_highband_8day_2D.pdf}
-\includegraphics[scale=0.35]{realdata_highband_8day_1D.pdf}
+\includegraphics[scale=0.45]{realdata_highband_8day_1D.pdf}
 \caption{Results from the high-band (157--167 MHz). White dotted lines indicate the boundary of the pitchfork and the EoR window. A black dotted line indicates the $k_{\parallel}=0$\,h/Mpc line. \textit{Top}: Simulated power spectra in Stokes I, Q, U and V, following the formalism in Section~\ref{sec:leak} -- no polarized sky model was used, so power in Stokes Q, U and V was only due to direction-dependent leakage from Stokes I. No instrumental noise was included in the simulation. \textit{Middle}: Eight-day average power spectra from data. \textit{Bottom}: The same data as shown in the middle panel, but with each baseline length overlaid on one another to allow shared features to be more easily identified.}
 \label{fig:pitchforks_highband}
 \end{figure*}
 
 \begin{figure*}[h]
 \centering
-\includegraphics[scale=0.45]{timeavg_SIM_low.pdf}
-\includegraphics[scale=0.45]{timeavg_low.pdf}
-\includegraphics[scale=0.35]{timeavg_1d_low.pdf}
+\includegraphics[scale=0.45]{simdata_lowband_8day_2D.pdf}
+\includegraphics[scale=0.45]{realdata_lowband_8day_2D.pdf}
+\includegraphics[scale=0.45]{realdata_lowband_8day_1D.pdf}
+%[width=0.8\textwidth]
 \caption{Results from the low-band (120--130 MHz), arranged in the same format as Figure~\ref{fig:pitchforks_highband}.}
 \label{fig:pitchforks_lowband}
 \end{figure*}

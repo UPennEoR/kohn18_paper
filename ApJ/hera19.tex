@@ -240,6 +240,14 @@
 \author{Haoxuan Zheng}
 \affiliation{Department of Physics, Massachusetts Institute of Technology, Cambridge, MA}
 
+%A very simple calibration achieves qualitative redundancy, reasonable amplitude accuracy
+%
+%The instrument shows reasonable stability
+%
+%The foregrounds are isolated in delay about as well as the simulations would predict (width in k-space)
+%
+% Features of the direction-dependent leakage are captured by the beam model
+
 \begin{abstract}
 \edited{
 Foreground power dominates the measurements of interferometers that seek a statistical detection of highly-redshifted \hi\ emission from the Epoch of Reionization (EoR). 
@@ -506,8 +514,14 @@ Figure~\ref{fig:phasecal} shows the effect of calibration on the visibilities of
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{phases_pre_post_abscal_h19_cyclic_grey.pdf}
-\caption{The effect of calibration on the phases of visibilities from three redundantly-spaced 14.7\,m baselines; \textit{nn} polarization. The color scale is cyclic; black is $\pm\pi/2$ and white is 0 and $\pm\pi$. \textit{Above}: before calibration; \textit{below}: after calibration.}
+\includegraphics[scale=0.38]{calibration_on_phases_noflags.pdf}
+\caption{
+The effect of calibration on the phases of visibilities from three redundantly-spaced 14.7\,m baselines; \textit{nn} polarization. 
+The antenna numbers refer to those given in Figure \ref{fig:antpos}.
+The color scale is cyclic; black is $\pm\pi/2$ and white is 0 and $\pm\pi$. The extend of the low band is indicated with red lines and the high band with blue.  
+\textit{Top row}: before calibration; \textit{Middle row}: after calibration; \textit{Bottom row}: the three pairs of differences of the calibrated phases.  
+Note that the agreement between baselines is excellent near the Galactic Center but shows significant differences at some other times.
+}
 \label{fig:phasecal}
 \end{figure}
 

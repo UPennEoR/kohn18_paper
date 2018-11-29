@@ -643,11 +643,23 @@ The lack of horizon power is corroborated by the simulations of the HERA delay r
 
 \begin{figure*}[h]
 \centering
-\includegraphics[width=0.9\textwidth]{real_sim_compare.png}
+\includegraphics[width=0.9\textwidth]{real_sim_compare_noinset.pdf}
 %{bl0_highband_nozoom.pdf}\\
 %\includegraphics[width=0.9\textwidth]{bl0_lowband_nozoom.pdf}
 \caption{Simulated and observed power as a function of $k_{\parallel}$ for the shortest baseline (14.6\,m). \textit{Right to left}: pseudo-Stokes I, Q, U and V; \textit{above}: the high band; \textit{below}: the low band. The simulations were noiseless and used an unpolarized sky model. They capture the foreground power levels in pseudo-Stokes I, Q and U, suggesting most power in Q and U is due to leakage from Stokes I. The power level in V is highly discrepant, however, suggesting some sort of beam-independent instrumental leakage.}
 \label{fig:bl0_cuts_vs_sim}
+\end{figure*}
+
+
+\begin{figure*}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{ps_peak_zoom.pdf}
+%{bl0_highband_nozoom.pdf}\\
+%\includegraphics[width=0.9\textwidth]{bl0_lowband_nozoom.pdf}
+\caption{A zoom in on Figure \ref{fig:bl0_cuts_vs_sim} showing just the $k$ values near the wedge, and with a linear scale in $P(k_\parallel)$.  
+Note that the change in scales for each parameter, but also note that Q and U are set to have the same scale in each row.  
+}
+\label{fig:bl0_cuts_vs_sim_zoom}
 \end{figure*}
 
 
@@ -671,7 +683,7 @@ The foreground and EoR window power levels appeared to be relatively stable betw
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{noise_estimation.pdf}
+\includegraphics[width=0.9\columnwidth]{noise_estimation.pdf}
 %{highband_by_day.pdf}
 \caption{High band power as a function of baseline length for the center of the pitchfork ($k_{\parallel}=0$ h/Mpc; solid lines) and in the EoR window ($k_{\parallel}=0.2$ h/Mpc; dot-dashed lines) for \edited{pseudo-Stokes I on} each JD of observation. The black dashed line represents the approximate noise power assuming a receiver temperature of 300\,K. A very similar relationship is shown in the low band, but with a higher noise floor, which is consistent with system temperature as a function of frequency. The noise level climbs with baseline length as the compact nature of the array gives more short baselines to average-over in a given $(k_{\parallel},k_{\perp})$ bin than longer ones.}
 \label{fig:highband_cuts_per_day}

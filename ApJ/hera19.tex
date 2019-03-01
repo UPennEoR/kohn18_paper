@@ -65,6 +65,13 @@
 \author{Nicholas S. Kern} 
 \affiliation{Department of Astronomy, University of California, Berkeley, CA}
 
+\author{Phil Bull}
+\affiliation{ Queen Mary University of London, UK}
+
+\author{Adrian Liu}
+\affiliation{Department of Astronomy, University of California, Berkeley, CA}
+\affiliation{Hubble Fellow}
+
 %% begin builders list
 
 \author{Paul Alexander}
@@ -148,8 +155,6 @@
  
 \author{MacCalvin Kariseb}
 \affiliation{SKA SA, 3rd Floor, The Park, Park Road, Pinelands, 7405, South Africa}
-
-
  
 \author{Matthew Kolopanis} 
 \affiliation{Department of Physics, Arizona State University, Tempe, AZ} 
@@ -157,10 +162,6 @@
  
 \author{Telalo Lekalake}
 \affiliation{SKA SA, 3rd Floor, The Park, Park Road, Pinelands, 7405, South Africa}
-
-\author{Adrian Liu}
-\affiliation{Department of Astronomy, University of California, Berkeley, CA}
-\affiliation{Hubble Fellow}
 
 \author{Anita Loots}
 \affiliation{SKA SA, 3rd Floor, The Park, Park Road, Pinelands, 7405, South Africa}
@@ -258,10 +259,11 @@ Faraday rotation can inject spectral structure into otherwise smooth polarized f
 For instruments pursuing a ``foreground avoidance'' strategy of simply measuring in the EoR window, and not attempting to model and remove foregrounds, as is the plan for the first stage
 of the Hydrogen Epoch of Reionization Array (HERA), characterizing the intrinsic instrument polarization response is particularly important.
 Using data from the HERA 19-element commissioning array, we investigate the polarization response of this new instrument in the power spectrum domain.
-We perform a simple image-based calibration based on the unpolarized diffuse emission of the Global Sky Model, and show that it achieves qualitative redundancy between the nominally-redundant baselines of the array and reasonable amplitude accuracy.  We show that the instrument is stable over a period of a week.  
-By comparison with the unpolarized simulations, we confirm that the calibration does not add significant spectral structure beyond that expected from the interferometer array configuration and the modeled primary beam response.
-We further show that many features of the predicted Stokes I to Q and U leakage are correctly described by this model.
-%Power consistent with noise in the EoR window suggests a negligible amount of spectrally-structured polarized power, to the noise-levels attained. This lends confidence to deep integrations with HERA in the future, but with a lower noise floor these future studies will also have to investigate their polarized response.
+We perform a simple image-based calibration based on the unpolarized diffuse emission of the Global Sky Model, and show that it achieves qualitative redundancy between the nominally-redundant baselines of the array and reasonable amplitude accuracy.
+We construct power spectra of all fully polarized coherencies in all pseudo-Stokes parameters, and discuss the achieved isolation of foreground power due to the intrinsic spectral smoothness of the foregrounds, the instrument chromaticity, and the calibration.  
+We compare to simulations based on an unpolarized diffuse sky model and detailed electromagnetic simulations of the dish and feed, confirming that in Stokes I, the calibration does not add significant spectral structure beyond that expected from the interferometer array configuration and the modeled primary beam response.
+Further, this calibration is stable over over the 8 days of observations considered.
+Excess power is seen in the power spectra of the linear polarization Stokes parameters which is not easily attributable to leakage via the primary beam, and results from some combination of residual calibration errors and actual polarized emission.  Stokes V is found to be highly discrepant from the expectation of zero power, strongly pointing to the need for more accurate polarized calibration.
 }
 \end{abstract}
 
@@ -280,14 +282,17 @@ foregrounds (in the ``wedge'') \edited{and} the cosmological {\sc Hi} signal (in
 Thermal noise is present throughout this space, and dominates the EoR window in any single observation.
 Detection of the EoR thus requires long observing seasons, precision calibration, and suppression of instrument systematics. 
 
-\edited{The cosmological {\sc Hi} signal is strongly unpolarized \citep{Mishra.17}. However, polarized synchrotron radiation represents a potential foreground contaminant capable of leaking into the EoR window. At low frequencies, Faraday rotation can impart significant spectral structure to polarized emission \citep[e.g.][]{Moore13}. This polarized signal is able to `leak' into unpolarized measurements due to miscalibration and instrumental effects \citep{Carozzi.09, Geil.11, Moore13, Asad15, Asad.16, Kohn16, Nunhokee.17}. Its spectrally-structured nature would alias power into the EoR window.} 
+\edited{The cosmological {\sc Hi} signal is strongly unpolarized \citep{Mishra.17}. However, polarized synchrotron radiation represents a potential foreground contaminant capable of leaking into the EoR window. At low frequencies, Faraday rotation can impart significant spectral structure to polarized emission \citep[e.g.][]{Moore13}. This polarized signal is able to `leak' into unpolarized measurements due to miscalibration and instrumental effects \citep{Carozzi.09, Geil.11, Moore13, Asad15, Asad.16, Kohn16, Nunhokee.17}, contaminating the EoR window.} 
 
 It is important to constrain intrinsic and leaked polarized signal for any {\sc Hi} intensity mapping experiment. The objective of this paper is an exploration of eight nights of data from the Hydrogen Epoch of Reionization Array (HERA) 19-element commissioning array, coupled with simulations of the instrument, in order to \edited{characterize the polarized response of this interferometer.  
 One of the more difficult features of an interferometer to characterize is the frequency- and direction-dependent polarized antenna response, which is important for characterizing polarized-to-unpolarized leakage in the wedge/window paradigm \citep{Moore17,Nunhokee.17,Martinot18}.
-In this work, we were primarily sensitive to leakage in the unpolarized-to-polarized direction. Due to the symmetry of leakage modes (elaborated upon in Section~\ref{sec:leak}), this still represents a useful constraint on polarized instrument response.} 
-This work also represents the first power spectra analysis from HERA. \edited{While we did not obtain new upper limits on the EoR power spectrum, we integrated deep enough to test models of the instrument's spectral response against simulations, and found that they agreed well to the noise levels probed.}
+In this work, we were primarily sensitive to leakage in the unpolarized-to-polarized direction. Due to the symmetry of leakage modes (elaborated upon in Section~\ref{sec:leak}), this still represents a useful constraint on the future problem of polarized-to-unpolarized leakage contaminating the EoR signal.
+While we use cosmological power spectra as a diagnostic of the data, the goal of this paper is not to obtain new upper limits on the EoR power spectrum, but simply to integrate deep enough to test models of the instrument's spectral response against simulations.
 
-This work is organized as follows: in Section~\ref{sec:leak} we review the theory behind polarization leakage into unpolarized signal and simulate the effects \edited{due to the polarized primary beam} for a model of HERA. In Section~\ref{sec:obs} we describe the HERA data that we used, its calibration, and reduction to power spectra. We present our results, and discuss the implications for HERA's EoR measurements in Section~\ref{sec:results}, and conclude in Section~\ref{conc}. We assume the cosmological parameters reported by \cite{Planck.16} throughout.
+This work is organized as follows: in Section~\ref{sec:leak} we review the theory behind polarization leakage into unpolarized signal and present the polarized primary beam model for the HERA commissioning array. In Section~\ref{sec:obs} we describe the HERA data that we used, its calibration, and reduction to power spectra. We present our results, and discuss the implications in Section~\ref{sec:results}, and conclude in Section~\ref{conc}. 
+
+We assume the cosmological parameters reported by \cite{Planck.16} throughout.
+}
 
 \section{Leakage Modes}
 \label{sec:leak}
@@ -477,7 +482,9 @@ SEFD per element & $\sim 5800$ Jy at 150 MHz\\
 \edited{\subsection{RFI Excision and Flagging}}
 
 To identify samples contaminated by radio frequency interference (RFI), a two-dimensional median filter in time and frequency was applied to the visibility data to smooth out high pixel-to-pixel variations, and remove significant outliers that were likely unphysical. The variance of the resulting data was computed, and points with a $z$-score greater than 6 (i.e., points where the value is more than 6$\sigma$ away from the mean) were flagged as initial seeds for RFI extraction. A two-dimensional watershed algorithm was applied using these seeds as starting points, enlarging the regions of RFI-contamination to neighboring pixels with $z$-scores greater than 2, until all such pixels were flagged. Figure~\ref{fig:rfi} shows the fractional RFI flag occupancy per time (displayed in LST) and frequency across the 8 days of observations. The majority of the band is relatively clear of RFI. Some clear features are: the FM radio band (below 110 MHz), ORBCOMM satellite communications (137 MHz), an ISS downlink (150 MHz) and VHF TV channels (above 170 MHz)\footnote{For an extended discussion of RFI as seen by HERA, see the public \href{http://reionization.org/wp-content/uploads/2013/03/HERAMemo19_HERA_dish_RFI.pdf}{\edited{\underline{HERA Memo \#19}}}}.
-The galaxy, when transiting zenith at LST$\approx$17.75 hours, is so bright that it appears to degrade our ability to flag RFI.
+The galaxy, when transiting zenith at LST$\approx$17.75 hours, is so bright that it appears to degrade our ability to flag RFI.  
+
+For our final 
 
 \edited{Four antennae were identified during the commissioning as having anomalous behavior. These are marked with red ``X''s in Figure~\ref{fig:antpos} and were omitted from further analysis.  Before calibration, we manually flagged the edges of the band (below 110 MHz and above 190 MHz), where spectral behavior is dominated by the high and low pass filtering in the HERA signal chain \citep{deBoer17}.}
 
@@ -599,7 +606,6 @@ Pseudo-stokes power spectra were formed for each pair of integrations, for every
 
 The power spectra formed from the above procedure are shown for all pseudo-Stokes parameters for the high and low bands in Figures~\ref{fig:pitchforks_highband} and \ref{fig:pitchforks_lowband}, respectively.   
 
-
 \begin{figure*}[h]
 \centering
 \includegraphics[scale=0.45]{highband_8day_LST_105_230.pdf}
@@ -618,43 +624,34 @@ The power spectra formed from the above procedure are shown for all pseudo-Stoke
 \subsection{General features of the power spectra}
 \label{subsec:general_features}
 
-Several features of the power spectra are readily apparent.  The first is that foreground emission appears in a relatively narrow band near $k_\parallel = 0$.  Another is that the the shape of the power spectrum as a function of $k_\parallel$ is both sharply peaked and relatively featureless.  We note that a similar study of 2D polarized power spectra in \citet{Kohn16}, PAPER measurements showed a comparably ``filled'' region of Fourier space out to the horizon delay (i.e., to directions corresponding to zenith angle $\pm$90$^{\circ}$), with some supra-horizon leakage \citep[e.g.,][]{Pober13} into the EoR window itself. The power spectra in Figures~\ref{fig:pitchforks_highband} and \ref{fig:pitchforks_lowband} show similar behavior, though in this case part of the reason is the low resolution ($\sim100$ ns; see Section \ref{subsec:pspec}) of the delay transform (Equation \ref{eq:DelaySpectrum}) due to the small spectral bandwidth, and the small horizon delay associated with the short baselines of the array.   Thus we are not able to verify the prediction of \citet{Nithya.15b} and \citet{Neben.16} that for dishes such as HERA, the region between a delay of about 50 ns (set by the width of the antenna primary beam) and the horizon should be free of foreground emission.  Similarly, an ``excess'' of power near the horizon delay, as predicted by the same authors, is not observable, again due to the blurring of features in $k_\parallel$ by the resolution.
+Several features of the power spectra are readily apparent.  The first is that foreground emission appears in a relatively narrow band near $k_\parallel = 0$.  Another is that the the shape of the power spectrum as a function of $k_\parallel$ is both sharply peaked and relatively featureless.  We note that a similar study of 2D polarized power spectra in \citet{Kohn16}, PAPER measurements showed a comparably ``filled'' region of Fourier space out to the horizon delay (i.e., to directions corresponding to zenith angle $\pm$90$^{\circ}$), with some supra-horizon leakage \citep[e.g.,][]{Pober13} into the EoR window itself. The power spectra in Figures~\ref{fig:pitchforks_highband} and \ref{fig:pitchforks_lowband} show similar behavior, though in this case part of the reason is the low resolution ($\sim100$ ns; see Section \ref{subsec:pspec}) of the delay transform (Equation \ref{eq:DelaySpectrum}) due to the small spectral bandwidth, and the small horizon delay associated with the short baselines of the array.   Thus we are not able to verify the prediction of \citet{Nithya.15b} and \citet{Neben.16} that for dishes such as HERA, the region between a delay of about 50 ns (set by the width of the antenna primary beam) and the horizon should be free of foreground emission.  Similarly, an ``excess'' of power near the horizon delay, as predicted by the same authors, is not observable, again due to the blurring of features in $k_\parallel$ by the resolution.  Along the $k_\perp$ direction in Stokes I, the amplitude declines as a function of $k_\perp$, as expected for diffuse Galactic emission with a power law angular power spectrum (larger fluctuation power on large scales).  This trend is also observed for the other Stokes parameters as well.
 
-A feature present in the observational data, but not in the simulations, is an excess of power which is independent of the baseline length and the frequency band which appears at a delay of $\sim1000 \, \mathrm{ns}$.  There are $\sim 150 \, \mathrm{m}$ coaxial cables connecting the HERA dishes to the correlator\footnote{This stage of the signal chain is only present in the commissioning array. Future HERA build-outs will transition to a different architecture using RF over fiber with long fiber runs to move this signal to even longer delays \citep{deBoer17}.} and we have evidence that some of this power is due to a cable reflection at this stage of the signal chain producing an alias of the foreground signal; see \href{http://reionization.org/wp-content/uploads/2013/03/HERA39_H1C_cable_reflections_ewall-wice.pdf}{\edited{\underline{HERA Memo \#39}}} \citep{hera_memo39}.  However, this signal should appear at a delay corresponding to 1300 ns, or twice the propagation time in the coaxial cable.  It appears that most of the signal present here is present at a smaller delay, and its origin is not understood.
+A notable feature in the observational data is a peak in power above the noise level at a delay of $\sim1000 \, \mathrm{ns}$, independent of the baseline length or the frequency band.   There are $\sim 150 \, \mathrm{m}$ coaxial cables connecting the HERA dishes to the correlator\footnote{This stage of the signal chain is only present in the commissioning array. Future HERA build-outs will transition to a different architecture using RF over fiber with long fiber runs to move this signal to even longer delays \citep{deBoer17}.} and we have evidence that some of this power is due to a cable reflection at this stage of the signal chain producing an alias of the foreground signal; see \href{http://reionization.org/wp-content/uploads/2013/03/HERA39_H1C_cable_reflections_ewall-wice.pdf}{\underline{HERA Memo \#39}} \citep{hera_memo39}.  However, this signal should appear at a delay corresponding to 1300 ns, or twice the propagation time in the coaxial cable.  It appears that most of the signal present here is present at a smaller delay, and its origin is not understood.
 
 \subsection{Comparison to Simulations}
 
- We show a direct comparison between the power spectra of the data and the simulations for the shortest baseline length and all Stokes parameters for both bands in Figure \ref{fig:bl0_cuts_vs_sim} and a zoom-in near close to the wedge in Figure \ref{fig:fig:bl0_cuts_vs_sim_zoom}.  
+We show a direct comparison between the power spectra of the data and the simulations for the shortest baseline length and all Stokes parameters for both bands in Figure \ref{fig:bl0_cuts_vs_sim} and a zoom-in near close to the wedge in Figure \ref{fig:bl0_cuts_vs_sim_zoom}.  Recall that the simulations include only a Stokes I sky component and no simulated calibration errors, so the only signal in the simulated pseudo-Stokes Q, U, and V power spectra are solely due to wide-field beam leakage (Figure~\ref{fig:mueller}).   The simulations also only included the diffuse emission of \citep[the most recent version of the GSM;][]{GSM.17}, which should be accurate at the scales probed by a 14.7\,m baseline, but does neglect power from point sources.  The power spectra of the simulated data have been computed in the same way as the data.  
 
-Other features of the power spectra compare well to the simulations.  For example, the amplitude declines as a function of $k_\perp$ in Stokes I, as expected for diffuse Galactic emission with a power law angular power spectrum (larger fluctuation power on large scales).  In general, the agreement for the polarization (Q, U, V) between simulation and data is poorer. 
+In comparing to the foreground simulations, there are two things to notice.  The first is the {\it isolation}, or the degree to which the foregrounds remain within the range of $k_\parallel$ defined by their intrinsic smoothness and by the mode-mixing of the interferometer, and which can be characterized by the width of the foregrounds in $k_\parallel$ (or $\tau$) space.  The second is the {\it dynamic range}, defined here as the ratio between the $k_\parallel=0$ peak and smallest value of the power spectrum.  This smallest value may be limited either by noise (in the case of the data) or by the Blackman-Harris window (for the noise-free simulations).  We note that the simulations provide a reasonable standard by which to judge both isolation and dynamic range: in the absence of any systematic effects, the width of the foregrounds in delay space cannot be narrower than that captured by the simulated foreground spectral structure and instrument mode-mixing, and the dynamic range is as expected from the window function.  Thus over a range of about 8 orders of magnitude in the Stokes I power spectrum, limited by the noise in the data, the isolation in the data agrees well with the simulation, arguing that the calibrated data do not have significant spectral structure beyond that intrinsically present.   It is worth pointing out there is some evidence for broadening of the range in $k$ near the noise floor.  For the the other pseudo-Stokes spectra, the isolation is worse: the power spectrum of the data is noticeably wider than the simulation.  
 
-In comparing to the foreground simulations, there are two things to notice.  The first is the {\it isolation}, or the degree to which the foregrounds remain within the range of $k_\parallel$ defined by their intrinsic smoothness and by the mode-mixing of the interferometer, and which can be characterized by the width of the foregrounds in $k_\parallel$ (or $\tau$) space.  The second is the {\it dynamic range}, defined here as the ratio between the $k_\parallel=0$ peak and smallest value of the power spectrum.  This smallest value may be limited either by noise (in the case of the data) or by the Blackman-Harris window (for the noise-free simulations).  We note that the simulations provide a reasonable standard by which to judge both isolation and dynamic range: in the absence of any systematic effects, the width of the foregrounds in delay space cannot be narrower than that captured by the simulated foreground spectral structure and instrument mode-mixing, and the dynamic range is as expected from the window function.  Thus over a range of about 8 orders of magnitude in the Stokes I power spectrum, the isolation in the data agrees well with the simulation, arguing that the calibrated data do not have significant spectral structure beyond that intrinsically present.   It is worth pointing out there is some evidence for broadening of the range in $k$ near the noise floor.  For the the other pseudo-Stokes spectra, the isolation is worse: the power spectrum of the data is noticeably wider than the simulation.  
+I
 
-In comparing to the simulations, we also recall that the simulations include only a Stokes I sky component and no simulated calibration errors, so the only signal in the simulated pseudo-Stokes Q, U, and V power spectra are solely due to wide-field beam leakage (Figure~\ref{fig:mueller}).   The simulations also only included the diffuse emission of \citep[the most recent version of the GSM;][]{GSM.17}, which should be accurate at the scales probed by a 14.7\,m baseline, but does neglect power from point sources.
+Referring to Figure \ref{fig:bl0_cuts_vs_sim_zoom}, it is clear that the calibration to the simulation described in Section \ref{subsec:cal} was imperfect: in both bands, the amplitude of the real data is 60 - 80\% of the simulated value in the pseudo-Stokes I power spectrum.  This is consistent with calibration derived from the GC agreeing between the simulation and data to $\sim10\%$.
 
-Referring to Figure \ref{fig:fig:bl0_cuts_vs_sim_zoom}, it is clear that the calibration to the simulation described in Section \ref{subsec:cal} was imperfect: in both bands, the amplitude of the real data is 60 - 80\% of the simulated value in Stokes I.  The comparison of the simulation to the other pseudo-Stokes parameters is more telling: the beam leakage modeled in the simulation is of roughly equal magnitude for both Q and U in both bands, but the data show a markedly stronger pseudo-Q than U in both bands.  Since there is no strong reason to believe the sky is highly anisotropic between Q and U over the range of RA included here, this argues for another interpretation.  Indeed, gain errors between the E and N polarized feeds of about 10\% would account for I to Q leakage of the magnitude seen.  In the high band, the simulated polarized leakage appears to account for nearly all of the observed power in U, but not in the low band.   
+The comparison of the simulation to the other pseudo-Stokes parameters is more telling: the beam leakage modeled in the simulation is of roughly equal magnitude for both Q and U in both bands, but the data show a markedly stronger pseudo-Q than U in both bands.  Since there is no strong reason to believe the sky is highly anisotropic between Q and U over the range of RA included here, this argues for another interpretation.  Indeed, gain errors between the E and N polarized feeds of about 10\% would account for I to Q leakage of the magnitude seen.  In the high band, the simulated polarized leakage appears to account for nearly all of the observed power in U, but not in the low band.   
 
-Interpreting the measured pseudo-Stokes Q and U power spectra as detections of actual polarized power would require polarized fractions in Stokes Q and U images order 5 - 20\%.  This is on the high end of range of measurements of $\sim 1.6 - 4.5\%$ fractional polarization at 150\,MHz on large-scale polarized structures by \cite{Jelic.15} and \cite{Lenc.16} of a few Kelvin on degree scales at comparable frequencies  To disentangle the contribution of gain errors and intrinsic polarization to the observed power requires more substantial simulation and statistical subtraction efforts \citep[e.g.][]{Lenc.18}, which is outside the scope of this paper, and we defer to future work.}
+Interpreting the measured pseudo-Stokes Q and U power spectra as detections of actual polarized power would require polarized fractions in Stokes Q and U images order 5 - 20\%.  This is on the high end of range of measurements of $\sim 1.6 - 4.5\%$ fractional polarization at 150\,MHz on large-scale polarized structures by \cite{Jelic.15} and \cite{Lenc.16}.  We note that whatever the interpretation of the linear pseudo-Stokes spectra, they do not provide strong evidence for high rotation measure emission, which would be present at $k_\parallel > 0.1$ for $RM > 10 \text{rad m}^{-2}$ in the high band \cite{Moore17}, although noise prevents probing levels as deep as those in \cite{Asad18}.
 
-%Leave out
-% Compare to Asad?
-%\cite{Lenc.16} observed linearly polarized emission from diffuse structure with  corresponding to power levels of $\sim10^5$ mK$^2$Mpc$^3$h$^{-3}$. This power level is similar to expected EoR power levels \citep[e.g.][]{Lidz.07, Moore13, Nunhokee.17}; a detection of a power spectrum of polarized galactic synchrotron will require much deeper integrations.
-%
-
-
-The observed pseudo-Stokes V power spectrum was more poorly modelled by our simulation. In both bands we observed $\sim$20 dB more power in pseudo-Stokes V at $k_{\parallel}=0$\,h/Mpc than predicted by our simulations. The peak power observed in pseudo-Stokes V was roughly 0.1\% of the peak power observed in pseudo-Stokes I. Likewise in the sky images shown in Figure~\ref{fig:GCimage}, there is little pseudo-Stokes V power in the simulated images, compared to observation. This suggests that most or all of the power in pseudo-Stokes V is due to direction independent leakage. While the leakage appears localized in Figure~\ref{fig:GCimage}, we see in Figure~\ref{fig:bl0_cuts_vs_sim} that it is statistically similar to pseudo-Stokes Q and U in power.
-Since $D$-terms cause direction-independent leakage from pseudo-Stokes I to pseudo-Stokes V, the excess power we observed could be interpreted as an approximate $D$-term level of $\sim$1\% \citep{TMS}. This is similar to $D$-term levels from other low frequency instruments such as MWA-32, which was found to have $\sim$2\% $D$-terms (G. Bernardi, private communication).
-To understand which effect, if either, is dominant, a precise $D$-term calibration of HERA is required. This effort is underway with data taken with bright polarized point sources in transit, and will be presented in future work. Another potential cause of the discrepancy could have been that our simulations under-predicted Stokes V power, due to lack of accounting for some variety of instrumental circular polarization.
-
-In Section~\ref{subsec:general_features} we noted the presence of excess power at $k_{\parallel}=\pm 0.04$\,h/Mpc ($\pm$100\,ns) that was independent of baseline length, suggesting that it was due to a reflection along 15\,m cables. Figure~\ref{fig:bl0_cuts_vs_sim} shows that power at this delay is not consistent between polarizations. Stokes U and V power only exhibited excess signal at -100\,ns in the high band, and in the low band, it was only Stokes U that did not exhibit that excess at +100\,ns. This may be a clue about the polarization state of cable reflections, perhaps as a function of frequency, but we defer this to future work -- noting it as a point of interest here.
-
+The observed pseudo-Stokes V power spectrum was more poorly modeled by our simulation. In both bands we observed $\sim$20 dB more power in pseudo-Stokes V at $k_{\parallel}=0$\,h/Mpc than predicted by our simulations. The peak power observed in pseudo-Stokes V was roughly 0.1\% of the peak power observed in pseudo-Stokes I, comparable to the power in pseudo-Stokes Q and U.   Since we do not expect any significant circular polarization from the sky, a more likely explanation here direction independent leakage, in the form of Jones matrix 
+$D$-terms of $\sim$1\% \citep{TMS}. This is similar to $D$-term levels from other low frequency instruments such as MWA-32, which was found to have $\sim$2\% $D$-terms (G. Bernardi, private communication).
 
 \begin{figure*}[h]
 \centering
 \includegraphics[width=0.9\textwidth]{real_sim_compare_noinset.pdf}
 %{bl0_highband_nozoom.pdf}\\
 %\includegraphics[width=0.9\textwidth]{bl0_lowband_nozoom.pdf}
-\caption{Simulated and observed power as a function of $k_{\parallel}$ for the shortest baseline (14.6\,m). \textit{Right to left}: pseudo-Stokes I, Q, U and V; \textit{above}: the high band; \textit{below}: the low band. The simulations were noiseless and used an unpolarized sky model. They capture the foreground power levels in pseudo-Stokes I, Q and U, suggesting most power in Q and U is due to leakage from Stokes I. The power level in V is highly discrepant, however, suggesting some sort of beam-independent instrumental leakage.}
+\caption{Simulated and observed power as a function of $k_{\parallel}$ for the shortest baseline (14.6\,m). \textit{Right to left}: pseudo-Stokes I, Q, U and V; \textit{above}: the high band; \textit{below}: the low band. The simulations were noiseless and used an unpolarized sky model. The agreement with Stokes I is consistent with an absolute calibration accuracy of 
+$\sim10\%$.  The agreement between the simulations and the data for the other pseudo-Stokes parameters is poor, as discussed in the text, likely due to a combination of calibration errors, particularly for Stokes V, and actual polarized emission.}
 \label{fig:bl0_cuts_vs_sim}
 \end{figure*}
 
@@ -663,8 +660,8 @@ In Section~\ref{subsec:general_features} we noted the presence of excess power a
 \includegraphics[width=0.9\textwidth]{ps_peak_zoom.pdf}
 %{bl0_highband_nozoom.pdf}\\
 %\includegraphics[width=0.9\textwidth]{bl0_lowband_nozoom.pdf}
-\caption{A zoom in on Figure \ref{fig:bl0_cuts_vs_sim} showing just the $k$ values near the wedge, and with a linear scale in $P(k_\parallel)$.  
-Note that the scale changes for each Stokes for each parameter, except that Q and U are set to have the same scale in each row.  
+\caption{\edited{A zoom in on Figure \ref{fig:bl0_cuts_vs_sim} showing just the $k$ values near the wedge, and with a linear scale in $P(k_\parallel)$.  
+Note that the scale changes for each Stokes for each parameter, except that Q and U are set to have the same scale in each row. }
 }
 \label{fig:bl0_cuts_vs_sim_zoom}
 \end{figure*}
@@ -688,12 +685,9 @@ Figure ~\ref{fig:highband_cuts_per_day} also shows that both the noise and calib
 \centering
 \includegraphics[width=0.9\columnwidth]{noise_estimation.pdf}
 %{highband_by_day.pdf}
-\caption{High band power as a function of baseline length for $k_{\parallel}=0$ h/Mpc (solid lines) and an average value over the white noise ($k_{\parallel}>1$ h/Mpc; dot-dashed lines) for pseudo-Stokes I on each JD of observation. The black dashed line represents the approximate noise power assuming a receiver temperature of XXX\,K. A very similar relationship obtains for the low band (not shown), but with a higher noise floor (XXX K).  Note that the increase of the noise level with baseline length is correctly modeled, as the compact array has has a decreasing number of baselines which are averaged together at a given $(k_{\parallel},k_{\perp})$ bin.}
+\caption{\edited{High band power as a function of baseline length for $k_{\parallel}=0$ h/Mpc (solid lines) and an average value over the white noise ($|k_{\parallel}|>1$ h/Mpc; dot-dashed lines) for pseudo-Stokes I on each JD of observation. The black dashed line represents estimated power spectrum noise given a system temperature of 2400\,K.  A very similar relationship obtains for the low band (not shown), but with a higher system temperature of 7000 K.  Note that the increase of the noise level with baseline length is correctly modeled, as the compact array has has a decreasing number of baselines which are averaged together in a given $(k_{\parallel},k_{\perp})$ bin.}}
 \label{fig:highband_cuts_per_day}
 \end{figure}
-
-}
-
 
 \edited{\section{Conclusions}}
 \label{conc}
@@ -701,6 +695,8 @@ Figure ~\ref{fig:highband_cuts_per_day} also shows that both the noise and calib
 In this work we have presented polarized power spectra from the HERA-19 commissioning array. With modest calibration, HERA is able isolate total intensity and polarized foregrounds to within the ``pitchfork'' region of \textit{k}-space, as predicted by \cite{Nithya.15b}, lending confidence to its future performance as an instrument capable of both detecting and characterizing the EoR power spectrum. Of course, the array used in this study had just 19 antennae, 15 of which were used for analysis -- future build-outs of HERA with up to 350 antennae will require strong quality-assurance efforts. %Larger HERA build-outs will also provide more $k_{\perp}$-modes 
 
 Simulations of the polarized response of the instrument, mapped into the same Fourier space as the data, suggest that most or all of the polarized power observed in pseudo-Stokes Q and U power spectra is due to direction-dependent beam leakage from pseudo-Stokes I. Residual gain and phase errors could account for the rest of the power, but some fraction of the total ($\leqslant 25\%$) may be due to linearly polarized foregrounds. Excess power in pseudo-Stokes V may be due to $D$-terms at the 1\% level, but a full image-based calibration with a polarized point source is required to confirm this. The general accuracy of our simulations suggests current modeling of the complex HERA beam is accurate.
+
+}
 
 \acknowledgements
 

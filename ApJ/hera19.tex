@@ -424,8 +424,7 @@ Forming power spectra from these visibilities allowed for a comparison of our da
 \subsection{Direction-Independent Leakage}
 \label{subsec:DI-Leak}
 
-% I think you are using "ideal dipoles" to mean "ideal polarization feeds", but the ideal dipole does NOT have ideal polarization response.
-%If ideal dipoles were achievable, one could completely isolate Stokes parameters in the pseudo-Stokes visibilities \citep{Hamaker.96, TMS, Moore13}:
+\edited{
 In addition to the mixing of Stokes parameters due to the primary beam, it is possible to mix them in a direction independent way. Calibration errors are capable of leaking signal between pseudo-Stokes visibilities independent of the sky \citep{TMS}. Again focusing on the $\{V^I,\,V^Q,\,V^U,\,V^V\}$ components of this leakage, we have:
 \begin{itemize}
 \item $V^I \rightarrow V^Q$ occurs through errors in calibrating the complex voltage gain factors for each dipole arm.
@@ -433,8 +432,8 @@ In addition to the mixing of Stokes parameters due to the primary beam, it is po
 \item $V^I \rightarrow V^V$ occurs through the difference in \textit{D}-terms between two feeds.
 \end{itemize}
 
-% We need to make clear that the simulations don't "need" diagonal gain errors, because nominally we correct for them.  
-We neglect calibration errors, and hence direction-independent leakage, in our simulations in order to build intuition around power spectrum estimates for a ``perfectly behaving'' instrument.  
+We detail how we obtain the direction-independent Jones terms in the next section.
+}
 
 \section{Observations and Reduction}
 \label{sec:obs}

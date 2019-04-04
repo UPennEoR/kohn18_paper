@@ -992,8 +992,6 @@ delay, and its origin is not understood.
 
 \subsection{Comparison to Simulations}
 
-{\color{red} Discussion of figures follows in next few paragraphs.}
-
 \edited{In Figure~\ref{fig:bl0_cuts_vs_sim}, we show a direct comparison between
   the power spectra of the data and the simulations for the shortest baseline
   length for all Stokes parameters for both
@@ -1002,10 +1000,10 @@ delay, and its origin is not understood.
   component and no simulated calibration errors, so the signal in the simulated
   pseudo-Stokes Q, U, and V power spectra is due solely to wide-field beam
   leakage (Figure~\ref{fig:mueller}).}  The simulations also only included the
-diffuse emission of \citep[the most recent version of the GSM;][]{GSM.17}, which
-should be accurate at the scales probed by a 14.7\,m baseline, but does neglect
-power from point sources.  The power spectra of the simulated data have been
-computed in the same way as the data.
+diffuse emission of the most recent version of the GSM \citep{GSM.17}, which
+should be accurate at the scales probed by a 14.7\,m baseline. \edited{However,
+  the GSM does neglect power from point sources.}  The power spectra of the
+simulated data have been computed in the same way as the data.
 
 In comparing to the foreground simulations, there are two things to notice.  The
 first is the {\it isolation}, or the degree to which the foregrounds remain
@@ -1025,16 +1023,16 @@ power spectrum, limited by the noise in the data, the isolation in the data
 agrees well with the simulation, arguing that the calibrated data \edited{(at
   the current noise level)} do not have significant spectral structure beyond
 that intrinsically present.  It is worth pointing out there is some evidence for
-broadening of the range in $k$ near the noise floor.  For the the other
+broadening of the range in $k_\parallel$ near the noise floor.  For the the other
 pseudo-Stokes spectra, the isolation is worse: the power spectrum of the data is
 noticeably wider than the simulation.
 
-Referring to Figure \ref{fig:bl0_cuts_vs_sim_zoom}, it is clear that
-\edited{calibrating the raw data to the simulation as} described in Section
-\ref{subsec:cal} was imperfect: in both bands, the amplitude of the real data is
-60 - 80\% of the simulated value in the pseudo-Stokes I power spectrum.  This is
-consistent with calibration derived from the GC agreeing between the simulation
-and data to $\sim10\%$.
+Referring to Figure \ref{fig:bl0_cuts_vs_sim_zoom}, \edited{calibrating the raw
+  data to the simulation as described in Section \ref{subsec:cal} reproduces the
+  total power in I very well in the high band, and leads to a total power
+  $\sim$40\% higher than the simulation in the low band. This discrepancy is
+  consistent with the overall amplitude of the calibration derived from the GC
+  disagreeing by $\sim$20\%.}
 
 The comparison of the simulation to the other pseudo-Stokes parameters is more
 telling: the beam leakage modeled in the simulation is of roughly equal
@@ -1044,7 +1042,7 @@ sky is highly anisotropic between Q and U over the range of RA included here,
 this argues for another interpretation.  Indeed, gain errors between the E and N
 polarized feeds of about 10\% would account for I to Q leakage of the magnitude
 seen.  In the high band, the simulated polarized leakage appears to account for
-nearly all of the observed power in U, but not in the low band.
+\edited{a significant fraction of the power} in U, but not in the low band.
 
 Interpreting the measured pseudo-Stokes Q and U power spectra as detections of
 actual polarized power would require polarized fractions in Stokes Q and U
@@ -1072,24 +1070,24 @@ $\sim$2\% $D$-terms (G. Bernardi, private communication).
 \centering
 \includegraphics[width=0.9\textwidth]{real_sim_compare_noinset.pdf}
 \caption{Simulated and observed power as a function of $k_{\parallel}$ for the
-  shortest baseline (14.6\,m). \textit{Right to left}: pseudo-Stokes I, Q, U and
-  V; \textit{above}: the high band; \textit{below}: the low band. The
+  shortest baseline (14.6\,m). \edited{\textit{Left to right}}: pseudo-Stokes I,
+  Q, U and V; \textit{above}: the high band; \textit{below}: the low band. The
   simulations were noiseless and used an unpolarized sky model. The agreement
-  with Stokes I is consistent with an absolute calibration accuracy of
-  $\sim10\%$.  The agreement between the simulations and the data for the other
-  pseudo-Stokes parameters is poor, as discussed in the text, likely due to a
-  combination of calibration errors, particularly for Stokes V, and actual
-  polarized emission.}
+  with Stokes I is \edited{excellent in the high band, and consistent with an
+    absolute calibration accuracy of $\sim$20\% for the low band}.  The
+  agreement between the simulations and the data for the other pseudo-Stokes
+  parameters is poor, as discussed in the text, likely due to a combination of
+  calibration errors, particularly for Stokes V, and actual polarized emission.}
 \label{fig:bl0_cuts_vs_sim}
 \end{figure*}
 
 \begin{figure*}[h]
 \centering
 \includegraphics[width=0.9\textwidth]{ps_peak_zoom.pdf}
-\caption{A zoom in on Figure \ref{fig:bl0_cuts_vs_sim} showing just the $k$
-  values near the wedge, and with a linear scale in $P(k_\parallel)$.  Note that
-  the scale changes for each Stokes for each parameter, except that Q and U are
-  set to have the same scale in each row.}
+\caption{A zoom in on Figure \ref{fig:bl0_cuts_vs_sim} showing just the
+  $k_\parallel$ values near the wedge, and with a linear scale in
+  $P(k_\parallel)$.  Note that the scale changes for each Stokes for each
+  parameter, except that Q and U are set to have the same scale in each row.}
 \label{fig:bl0_cuts_vs_sim_zoom}
 \end{figure*}
 

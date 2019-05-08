@@ -1032,39 +1032,102 @@ Referring to Figure \ref{fig:bl0_cuts_vs_sim_zoom}, \edited{calibrating the raw
   total power in I very well in the high band, and leads to a total power
   $\sim$40\% higher than the simulation in the low band. This discrepancy is
   consistent with the overall amplitude of the calibration derived from the GC
-  disagreeing by $\sim$20\%.}
+  disagreeing by $\sim$20\%. A potential reason for the disagreement in the low
+  band is a less accurate model of the primary beam, which is known to
+  systematically underpredict the response to a given sky signal. In the
+  analysis that follows, we have increased the amplitude of the simulated power
+  spectrum in the low band to agree with the real data. Because we are primarily
+  concerned with the relative power between different pseudo-Stokes parameters,
+  this rescaling allows for a more even treatment of the two bands.}
 
-The comparison of the simulation to the other pseudo-Stokes parameters is more
-telling: the beam leakage modeled in the simulation is of roughly equal
-magnitude for both Q and U in both bands, but the data show a markedly stronger
-pseudo-Q than U in both bands.  Since there is no strong reason to believe the
-sky is highly anisotropic between Q and U over the range of RA included here,
-this argues for another interpretation.  Indeed, gain errors between the E and N
-polarized feeds of about 10\% would account for I to Q leakage of the magnitude
-seen.  In the high band, the simulated polarized leakage appears to account for
-\edited{a significant fraction of the power} in U, but not in the low band.
+% The comparison of the simulation to the other pseudo-Stokes parameters is more
+% telling: the beam leakage modeled in the simulation is of roughly equal
+% magnitude for both Q and U in both bands, but the data show a markedly stronger
+% pseudo-Q than U in both bands.  Since there is no strong reason to believe the
+% sky is highly anisotropic between Q and U over the range of RA included here,
+% this argues for another interpretation.  Indeed, gain errors between the E and N
+% polarized feeds of about 10\% would account for I to Q leakage of the magnitude
+% seen.  In the high band, the simulated polarized leakage appears to account for
+% \edited{a significant fraction of the power} in U, but not in the low band.
 
-Interpreting the measured pseudo-Stokes Q and U power spectra as detections of
-actual polarized power would require polarized fractions in Stokes Q and U
-images order 5 - 20\%.  This is on the high end of range of measurements of
-$\sim 1.6 - 4.5\%$ fractional polarization at 150\,MHz on large-scale polarized
-structures by \cite{Jelic.15} and \cite{Lenc.16}.  We note that whatever the
-interpretation of the linear pseudo-Stokes spectra, they do not provide strong
-evidence for high rotation measure emission, which would be present at
-$k_\parallel > 0.1$ for $RM > 10~\text{rad m}^{-2}$ in the high band
-\cite{Moore17}, although noise prevents probing levels as deep as those in
-\cite{Asad18}.
+% Interpreting the measured pseudo-Stokes Q and U power spectra as detections of
+% actual polarized power would require polarized fractions in Stokes Q and U
+% images order 5 - 20\%.  This is on the high end of range of measurements of
+% $\sim 1.6 - 4.5\%$ fractional polarization at 150\,MHz on large-scale polarized
+% structures by \cite{Jelic.15} and \cite{Lenc.16}.  We note that whatever the
+% interpretation of the linear pseudo-Stokes spectra, they do not provide strong
+% evidence for high rotation measure emission, which would be present at
+% $k_\parallel > 0.1$ for $RM > 10~\text{rad m}^{-2}$ in the high band
+% \cite{Moore17}, although noise prevents probing levels as deep as those in
+% \cite{Asad18}.
 
-The observed pseudo-Stokes V power spectrum was more poorly modeled by our
-simulation. In both bands we observed $\sim$20 dB more power in pseudo-Stokes V
-at $k_{\parallel}=0$\,h/Mpc than predicted by our simulations. The peak power
-observed in pseudo-Stokes V was roughly 0.1\% of the peak power observed in
-pseudo-Stokes I, comparable to the power in pseudo-Stokes Q and U.  Since we do
-not expect any significant circular polarization from the sky, a more likely
-explanation here direction independent leakage, in the form of Jones matrix
-$D$-terms of $\sim$1\% \citep{TMS}. This is similar to $D$-term levels from
-other low frequency instruments such as MWA-32, which was found to have
-$\sim$2\% $D$-terms (G. Bernardi, private communication).
+% The observed pseudo-Stokes V power spectrum was more poorly modeled by our
+% simulation. In both bands we observed $\sim$20 dB more power in pseudo-Stokes V
+% at $k_{\parallel}=0$\,h/Mpc than predicted by our simulations. The peak power
+% observed in pseudo-Stokes V was roughly 0.1\% of the peak power observed in
+% pseudo-Stokes I, comparable to the power in pseudo-Stokes Q and U.  Since we do
+% not expect any significant circular polarization from the sky, a more likely
+% explanation here direction independent leakage, in the form of Jones matrix
+% $D$-terms of $\sim$1\% \citep{TMS}. This is similar to $D$-term levels from
+% other low frequency instruments such as MWA-32, which was found to have
+% $\sim$2\% $D$-terms (G. Bernardi, private communication).
+
+\edited{In the high band analysis, the beam leakage modeled in the simulation is
+  of roughly equal magnitude for both Q and U; however, the data show a markedly
+  stronger pseudo-Q than U. Because there is no strong reason to believe the sky
+  is highly anisotropic between Q and U over the RA included here, this
+  difference argues for another interpretation. The amplitude difference between
+  pseudo-Q and U is $\sim$10\% in the visibilities (rather than the power
+  spectra), which can be accounted for by a $\sim$5\% relative amplitude
+  miscalibration between the E and N polarized feeds of the antenna. The
+  pseudo-Q visibilities are constructed by differencing the calibrated
+  \textit{nn} and \textit{ee} visibilities, which can make relative amplitude
+  differences between the two polarizations more pronounced. Thus, assuming the
+  excess power in pseudo-Q can be attributed to this difference in gain
+  amplitude between the two polarized feeds, we can use pseudo-U as a
+  measurement of the excess polarized power on the sky not accounted for in the
+  beam leakage from the simulations. This interpretation leads to a combined
+  fractional polarization of $\sim$10\%. This result is on the high end of the
+  range of measurements of $\sim 1.6 - 4.5$\% fractional polarization at
+  150\,MHz on large-scales from \cite{Jelic.15} and \cite{Lenc.16}.  We note
+  that whatever the interpretation of the linear pseudo-Stokes spectra, they do
+  not provide strong evidence for high rotation measure emission, which would be
+  present at $k_\parallel > 0.1$ for $RM > 10~\text{rad m}^{-2}$ in the high
+  band \cite{Moore17}, although noise prevents probing levels as deep as those
+  in \cite{Asad18}.}
+
+\edited{As with pseudo-Q and U, pseudo-V has excess power in the measured power
+  spectra compared to the reference simulations. Measurements in the literature
+  do not suggest a significant amount of large-scale circularly polarized
+  emission at the frequencies measured, and so this excess power is most likely
+  due to miscalibration of the instrument. Relative phase errors in the gain
+  solutions of the cross-polarized instrumental visibilities can lead pseudo-U
+  to leak into pseudo-V. However, given the measured amplitudes of the two power
+  spectra implies that this systematic error in phase angle must be order
+  $\pi/2$, which would imply that these phase errors are nearly maximally
+  rotated with respect to the correct value. A more plausible explanation for
+  this excess power in pseudo-V is direction independent leakage through the
+  $D$-terms of the Jones matrix, which leak power from pseudo-I \citep{TMS}. As
+  discussed in Sec.~\ref{subsec:cal}, $D$-terms were entirely neglected for the
+  calibration performed in this analysis. Assuming that these $D$-terms are the
+  source of the leaked power from pseudo-I to pseudo-V, their amplitude relative
+  to the diagonal elements of the Jones matrix are $\sim$3\%. This is similar to
+  $D$-term levels from other low frequency instruments such as MWA-32, which was
+  found to have $\sim$2\% $D$-terms (G. Bernardi, private communication).}
+
+\edited{The low band measurements tell a similar story, with the notable
+  difference that the simulated pseudo-Q and U power spectra exhibit a greater
+  discrepancy than the high band measurements. As with the overall power in
+  pseudo-I, this difference may be attributable to the less accurate beam model
+  at these frequencies. Performing the same analysis as for the high band, we
+  again find that the inferred polarization fraction from the pseudo-U
+  visibilities is $\sim$10\%, and the excess power in pseudo-Q can be accounted
+  for by gain amplitude errors of $\sim$5\%. The relative amplitude of the
+  $D$-terms to account for the excess power in pseudo-V are closer to 5\%, which
+  is slightly higher than the high band but still plausible given the behavior
+  of similar instruments. These results suggest that future precision
+  calibration efforts should include analysis of $D$-terms in order to
+  accurately model the instrumental effects on the measured visibilities.}
 
 \begin{figure*}[h]
 \centering

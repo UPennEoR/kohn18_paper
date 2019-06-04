@@ -999,11 +999,8 @@ delay, and its origin is not understood.
   close to the wedge. Recall that the simulations include only a Stokes I sky
   component and no simulated calibration errors, so the signal in the simulated
   pseudo-Stokes Q, U, and V power spectra is due solely to wide-field beam
-  leakage (Figure~\ref{fig:mueller}).}  The simulations also only included the
-diffuse emission of the most recent version of the GSM \citep{GSM.17}, which
-should be accurate at the scales probed by a 14.7\,m baseline. \edited{However,
-  the GSM does neglect power from point sources.}  The power spectra of the
-simulated data have been computed in the same way as the data.
+  leakage (Figure~\ref{fig:mueller}). The Stokes I model is the diffuse emission of the GSM, which should be accurate at the scales probed by a 14.7\,m baseline, as the model includes scales down to 1\arcdeg.} 
+ The power spectra of the simulated data have been computed in the same way as the data.
 
 In comparing to the foreground simulations, there are two things to notice.  The
 first is the {\it isolation}, or the degree to which the foregrounds remain
@@ -1011,7 +1008,7 @@ within the range of $k_\parallel$ defined by their intrinsic smoothness and by
 the mode-mixing of the interferometer, and which can be characterized by the
 width of the foregrounds in $k_\parallel$ (or $\tau$) space.  The second is the
 {\it dynamic range}, defined here as the ratio between the $k_\parallel=0$ peak
-and smallest value of the power spectrum.  This smallest value may be limited
+and the smallest value of the power spectrum.  This smallest value may be limited
 either by noise (in the case of the data) or by the Blackman-Harris window (for
 the noise-free simulations).  We note that the simulations provide a reasonable
 standard by which to judge both isolation and dynamic range: in the absence of
@@ -1027,17 +1024,10 @@ broadening of the range in $k_\parallel$ near the noise floor.  For the the othe
 pseudo-Stokes spectra, the isolation is worse: the power spectrum of the data is
 noticeably wider than the simulation.
 
-Referring to Figure \ref{fig:bl0_cuts_vs_sim_zoom}, \edited{calibrating the raw
-  data to the simulation as described in Section \ref{subsec:cal} reproduces the
-  total power in I very well in the high band, and leads to a total power
-  $\sim$40\% higher than the simulation in the low band. This discrepancy is
-  consistent with the overall amplitude of the calibration derived from the GC
-  disagreeing by $\sim$20\%. A potential reason for the disagreement in the low
-  band is a less accurate model of the primary beam, which is known to
-  systematically underpredict the response to a given sky signal. In the
-  analysis that follows, we have increased the amplitude of the simulated power
-  spectrum in the low band to agree with the real data. Because we are primarily
-  concerned with the relative power between different pseudo-Stokes parameters,
+Referring to Figure \ref{fig:bl0_cuts_vs_sim_zoom}, \edited{calibrating the raw data to the simulation as described in Section \ref{subsec:cal} reproduces the total power in I very well in the high band, and leads to a total power $\sim$40\% higher than the simulation in the low band. This discrepancy is consistent with the overall amplitude of the calibration derived from the GC disagreeing by $\sim$20\% in the low band. It is not clear whether this is due to errors in the GSM or the primary beam model at low frequencies.
+In the analysis that follows, we have increased the amplitude of the simulated power
+  spectrum in the low band to agree with the real data because we are primarily
+  concerned with the relative power between different pseudo-Stokes parameters;
   this rescaling allows for a more even treatment of the two bands.}
 
 % The comparison of the simulation to the other pseudo-Stokes parameters is more
@@ -1078,8 +1068,8 @@ Referring to Figure \ref{fig:bl0_cuts_vs_sim_zoom}, \edited{calibrating the raw
   is highly anisotropic between Q and U over the RA included here, this
   difference argues for another interpretation. The amplitude difference between
   pseudo-Q and U is $\sim$10\% in the visibilities (rather than the power
-  spectra), which can be accounted for by a $\sim$5\% relative amplitude
-  miscalibration between the E and N polarized feeds of the antenna. The
+  spectra), which can be accounted for by a $\sim$5\% relative 
+  miscalibration in the antenna-based gain amplitudes between the E and N polarized feeds of the antenna. The
   pseudo-Q visibilities are constructed by differencing the calibrated
   \textit{nn} and \textit{ee} visibilities, which can make relative amplitude
   differences between the two polarizations more pronounced. Thus, assuming the
@@ -1093,7 +1083,7 @@ Referring to Figure \ref{fig:bl0_cuts_vs_sim_zoom}, \edited{calibrating the raw
   that whatever the interpretation of the linear pseudo-Stokes spectra, they do
   not provide strong evidence for high rotation measure emission, which would be
   present at $k_\parallel > 0.1$ for $RM > 10~\text{rad m}^{-2}$ in the high
-  band \cite{Moore17}, although noise prevents probing levels as deep as those
+  band \citep{Moore17}, although noise prevents probing levels as deep as those
   in \cite{Asad18}.}
 
 \edited{As with pseudo-Q and U, pseudo-V has excess power in the measured power
@@ -1102,24 +1092,23 @@ Referring to Figure \ref{fig:bl0_cuts_vs_sim_zoom}, \edited{calibrating the raw
   emission at the frequencies measured, and so this excess power is most likely
   due to miscalibration of the instrument. Relative phase errors in the gain
   solutions of the cross-polarized instrumental visibilities can lead pseudo-U
-  to leak into pseudo-V. However, given the measured amplitudes of the two power
-  spectra implies that this systematic error in phase angle must be order
-  $\pi/2$, which would imply that these phase errors are nearly maximally
+  to leak into pseudo-V. However, the measured amplitudes of the two power
+  spectra would imply that this systematic error in phase angle must be order
+  $\pi/2$, or that these phase errors are nearly maximally
   rotated with respect to the correct value. A more plausible explanation for
   this excess power in pseudo-V is direction independent leakage through the
   $D$-terms of the Jones matrix, which leak power from pseudo-I \citep{TMS}. As
   discussed in Sec.~\ref{subsec:cal}, $D$-terms were entirely neglected for the
   calibration performed in this analysis. Assuming that these $D$-terms are the
   source of the leaked power from pseudo-I to pseudo-V, their amplitude relative
-  to the diagonal elements of the Jones matrix are $\sim$3\%. This is similar to
+  to the diagonal elements of the Jones matrix would be $\sim$3\%. This is similar to
   $D$-term levels from other low frequency instruments such as MWA-32, which was
   found to have $\sim$2\% $D$-terms (G. Bernardi, private communication).}
 
 \edited{The low band measurements tell a similar story, with the notable
   difference that the simulated pseudo-Q and U power spectra exhibit a greater
-  discrepancy than the high band measurements. As with the overall power in
-  pseudo-I, this difference may be attributable to the less accurate beam model
-  at these frequencies. Performing the same analysis as for the high band, we
+  discrepancy than the high band measurements.  This difference may be attributable to the general difficulty in accurately calibrating the low band due to model and beam uncertainties.
+  Performing the same analysis as for the high band, we
   again find that the inferred polarization fraction from the pseudo-U
   visibilities is $\sim$10\%, and the excess power in pseudo-Q can be accounted
   for by gain amplitude errors of $\sim$5\%. The relative amplitude of the

@@ -1,0 +1,7 @@
+We believe we have addressed the reviewer's small remaining comments.
+There was one final tweak to Figure 11 with corresponding small
+changes to the text at the end of Section 4.2.  All changes to the
+text are shown in blue typeface.
+
+Many thanks to the reviewer and the editor on their patience with the
+revisions to this manuscript.
